@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased — hypothesis validation and illustrated documentation
+
+- Added a hypothesis ledger and primary-source business research; narrowed the proposed buyer to agencies with unresolved work across hosting arrangements.
+- Added six reproducible engine/export experiments, 15 passing checks, all raw timing samples, fictional fixtures, and generated customer HTML/CSV reports.
+- Added nine actual-browser capacity trials at 10, 100, and 1,000 records, with predetermined budgets and complete raw observations.
+- Added a 16-screenshot walkthrough with executable assertions, a checksum manifest, the actual downloaded report, mobile scenarios, rejected-import preservation, and catalog expiry.
+- Added `npm run experiments`; browser tooling remains optional and separate. No runtime dependencies or application-source changes were introduced.
+- Updated README, business scope, work log, and validation evidence. Customer demand, pricing, human time savings, and repeat purchases remain unvalidated.
+
 ## 0.1.0 — October 22, 2026
 
 First local MVP of PHP Response Desk, supporting an agency's PHP update evidence and customer handover workflow.

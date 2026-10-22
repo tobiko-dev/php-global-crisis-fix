@@ -10,13 +10,30 @@ A working local MVP for web agencies and managed service providers coordinating 
 
 *The screenshot and bundled inventory are fictional. This repository documents a product and a proposed service; it does not claim customers, revenue, or production remediation.*
 
+## Tested hypotheses and 16 screenshots
+
+**[Read the illustrated walkthrough](docs/WALKTHROUGH.md)** to follow an actual browser session from an outdated runtime through incomplete evidence, saved completion, a provider assertion, imports, and the downloaded customer report. It also covers empty state, mobile editing, and catalog expiry. Every screenshot has accompanying executable assertions and a recorded checksum.
+
+The [hypothesis ledger](docs/HYPOTHESES.md) records what survived testing and what changed:
+
+- **15 engineering checks passed** across six declared hypotheses, including customer export isolation, evidence expiry, import boundaries, and repeated engine measurements.
+- **Nine browser-capacity trials passed.** A representative 1,000-record fleet reached the import paint checkpoint in 579–1,479 ms on the recorded shared test host; this does not measure human task time or input responsiveness during rendering.
+- **16 illustrated browser scenarios passed**, including the actual downloaded report, with no JavaScript/CSP errors or external requests.
+- **Business research narrowed the offer.** Existing tools already supply dashboards and reports. Customer demand, time saved, and the proposed pilot price remain untested.
+
+[Experiment methods and raw results](docs/EXPERIMENTS.md) · [Browser capacity](docs/CAPACITY.md) · [Primary-source business research](docs/RESEARCH.md)
+
+![Actual downloaded fictional customer report with two complete records and one unresolved record in its summary](docs/assets/walkthrough/11-downloaded-client-report.png)
+
+*This is the actual HTML download opened in Chromium. Its records and operational evidence are explicitly fictional. The full [example report](examples/walkthrough/client-report.html) contains all three selected customer environments.*
+
 ## The business problem
 
 During an urgent PHP update, an agency needs a defensible answer for every customer site: who owns it, what evidence shows the update is active, and what remains to be done.
 
 Provider behavior differs. [Laravel Forge states that its automatic security updates do not patch PHP](https://laravel.com/forge/docs/knowledge-base/php-security-release-october-2026). Vendor backports and persistent workers also mean that a version string needs context. [The PHP project's advisory](https://www.php.net/archive/2026.php) supplies the upstream baseline.
 
-The first commercial hypothesis is a scoped verification service for agencies with several sites and uneven hosting support. The proposed **$150–300 single-server pilot is an unvalidated pricing experiment**. Scope, deliverables, discovery questions, and decision criteria are in [the business plan](docs/BUSINESS.md).
+The revised commercial hypothesis is an operator-led evidence review for agencies with mixed hosting arrangements and a concrete gap left by their current process. [Research found existing dashboard/report substitutes and fully handled managed environments](docs/RESEARCH.md), so the qualifying question is what work remains. The proposed **$150–300 single-server pilot is an unvalidated pricing experiment**. Scope, deliverables, discovery questions, and decision criteria are in [the business plan](docs/BUSINESS.md).
 
 ## Run it in two minutes
 
@@ -68,6 +85,8 @@ The initial catalog covers **CVE-2026-109618 and CVE-2026-109619**, reviewed Oct
 
 The [operator runbook](docs/RUNBOOK.md) explains the complete workflow.
 
+The [16-screenshot walkthrough](docs/WALKTHROUGH.md) shows the workflow in use, including a saved CLI-only version that still needs verification and a completed evidence record that survives a reload.
+
 ### Generate a fictional report
 
 ```bash
@@ -112,12 +131,25 @@ npm test
 npm run test:collector
 ```
 
+To reproduce the separate hypothesis experiments with a new output directory:
+
+```bash
+npm run experiments -- --out reports/experiments-recheck
+```
+
+The experiment runner needs no additional packages. Browser captures and capacity checks use a separate optional Playwright installation, with commands in their respective guides. Machine-dependent latency budgets are not mandatory CI gates.
+
 GitHub Actions is configured for Node.js **20, 22, and 24**, collector checks, and a demo report build. External actions are pinned to commit SHAs. [The validation record](docs/VALIDATION.md) distinguishes observed results from remaining compatibility and production limits.
 
 ## Documentation map
 
 | Document | What it records |
 |---|---|
+| [Hypothesis ledger](docs/HYPOTHESES.md) | Tested assumptions, counterevidence, revised decisions, and the next customer experiments. |
+| [16-screenshot walkthrough](docs/WALKTHROUGH.md) | Actual use, assertions for every scene, downloadable report, and reproduction steps. |
+| [Product experiments](docs/EXPERIMENTS.md) | Predetermined criteria, raw samples, input boundaries, export isolation, and interpretation. |
+| [Browser capacity](docs/CAPACITY.md) | Actual import/filter measurements at 10, 100, and 1,000 records. |
+| [Business research](docs/RESEARCH.md) | Primary-source evidence, existing alternatives, and unvalidated market claims. |
 | [Business hypothesis](docs/BUSINESS.md) | Buyer, pilot, discovery questions, and evidence needed to justify investment. |
 | [Operator runbook](docs/RUNBOOK.md) | Inventory, evidence review, commands, reports, and handover. |
 | [Source register](docs/SOURCES.md) | Primary advisories, exact URLs, backports, and catalog maintenance. |

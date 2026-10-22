@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Reproducible browser evidence using fictional customers and illustrative evidence; not customer feedback or a real security assessment.",
+  "capturedAt": "2026-10-22T03:56:44.697Z",
+  "catalogId": "php2shell-2026-10-21",
+  "standardTestClock": "2026-10-22T14:00:00.000Z",
+  "expiredTestClock": "2026-10-29T00:59:59.000Z",
+  "productionClockModified": false,
+  "chromiumVersion": "131.0.6778.0",
+  "playwrightVersion": "1.62.1",
+  "timezone": "UTC",
+  "desktopViewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "screenshotCount": 16,
+  "browserConsoleErrors": [],
+  "externalRequestCount": 0,
+  "reportFile": "examples/walkthrough/client-report.html",
+  "reportSha256": "fd2006619a747f2f58d02a42488fa0717fcc5c43f2d10f74a4a038cc9969d375",
+  "screenshots": [
+    {
+      "number": 1,
+      "file": "01-fleet-overview.png",
+      "title": "Fictional fleet intake",
+      "width": 1440,
+      "height": 1000,
+      "crop": "browser viewport",
+      "assertions": [
+        "Eight demo sites across four clients.",
+        "Status counts are 2 action, 3 verification, 2 complete, 1 provider.",
+        "Demo banner is visible."
+      ],
+      "sha256": "afb186c2aadd0e71df4ba202fc2b09dc731ffb46d0b8320c2035ab5af042c262"
+    },
+    {
+      "number": 2,
+      "file": "02-evidence-queue.png",
+      "title": "Unresolved work stays in the queue",
+      "width": 1440,
+      "height": 1000,
+      "crop": "browser viewport",
+      "assertions": [
+        "Queue contains five unresolved records.",
+        "Neither completed evidence nor provider-confirmed records appears in the queue."
+      ],
+      "sha256": "a823beb95dc7f4b4a38836c0625afe24156e421075baebdb3cbdf7ca3449060e"
+    },
+    {
+      "number": 3,
+      "file": "03-customer-filter.png",
+      "title": "One customer, two environments",
+      "width": 857,
+      "height": 386,
+      "crop": ".inventory-panel",
+      "assertions": [
+        "Client filter returns only Fern & Field.",
+        "The storefront requires action while the booking portal has complete evidence."
+      ],
+      "sha256": "8517780a1401a43d0773289c7244b7e375eaae84e270278deb626012a245bcd4"
+    },
+    {
+      "number": 4,
+      "file": "04-outdated-runtime-action.png",
+      "title": "An outdated runtime has an explicit next action",
+      "width": 550,
+      "height": 1000,
+      "crop": "#editorDialog",
+      "assertions": [
+        "The saved 8.4.26 storefront is action-required.",
+        "Its action plan references the 8.4.27 upstream minimum."
+      ],
+      "sha256": "0f968209ad98cffee73bb64a2858313ccd89bf75152c3a3f9e6a709151412e23"
+    },
+    {
+      "number": 5,
+      "file": "05-updated-version-missing-evidence.png",
+      "title": "A patched CLI version is insufficient",
+      "width": 550,
+      "height": 1000,
+      "crop": "#editorDialog",
+      "assertions": [
+        "8.4.27 was saved, but the observation is CLI-only.",
+        "Missing restart and application-check evidence leaves the record unresolved."
+      ],
+      "sha256": "04e810a7e53974fa9b09cf1018d57d7af951c6275a99212ff372e867de65b7ca"
+    },
+    {
+      "number": 6,
+      "file": "06-complete-evidence-record.png",
+      "title": "Complete recorded evidence survives reload",
+      "width": 550,
+      "height": 1000,
+      "crop": "#editorDialog",
+      "assertions": [
+        "Active web runtime, reviewer, evidence note, restart and application check are saved.",
+        "Restart 13:30 UTC precedes observation 13:40 UTC and smoke check 13:50 UTC.",
+        "The reloaded record is evidence-complete; the workspace is still explicitly a demo."
+      ],
+      "sha256": "79a92703da833db24980e4f9ec9aff31f6c80387ce91cc1b1c4c33a199205bb9"
+    },
+    {
+      "number": 7,
+      "file": "07-provider-assertion.png",
+      "title": "Provider confirmation retains its own evidence trail",
+      "width": 493,
+      "height": 416,
+      "crop": "#providerDetails",
+      "assertions": [
+        "A managed-hosting assertion is provider-confirmed, not upstream runtime evidence-complete.",
+        "The reference, reviewer, timestamp and explicit coverage of both CVEs are recorded."
+      ],
+      "sha256": "bab1544ab90ccca4ee7f2dec0e547715a1d731bf8ef5b53253465f48a83d6dea"
+    },
+    {
+      "number": 8,
+      "file": "08-merge-import-preview.png",
+      "title": "Review a merge before changing inventory",
+      "width": 520,
+      "height": 378,
+      "crop": "#importDialog",
+      "assertions": [
+        "The preview identifies the imported file as fictional demo data.",
+        "Merge by record ID is selected before submission; current inventory has not changed yet."
+      ],
+      "sha256": "c4a6859c23810727bed66d511d98be335fff697a52727a92758ff82aac20985f"
+    },
+    {
+      "number": 9,
+      "file": "09-rejected-import-preserved.png",
+      "title": "A rejected import preserves the nine-site workspace",
+      "width": 1440,
+      "height": 1000,
+      "crop": "browser viewport",
+      "assertions": [
+        "Unsupported schemaVersion is rejected visibly.",
+        "Parsed stored inventory is unchanged under deep comparison; all nine records remain."
+      ],
+      "sha256": "5a74f84943ec1b4f9d3c69c2aeb07d80a6d5928ef39ac92c2e65add3e35806c2"
+    },
+    {
+      "number": 10,
+      "file": "10-client-report-scope.png",
+      "title": "Customer handover has an explicit scope",
+      "width": 520,
+      "height": 478,
+      "crop": "#reportDialog",
+      "assertions": [
+        "The report is scoped to Fern & Field: three sites, one unresolved.",
+        "The dialog discloses fictional demo data before downloading."
+      ],
+      "sha256": "90bb38caf3f818a9eede01a675c18fd39b6c2e0a5d812a29f25bcac2331318e8"
+    },
+    {
+      "number": 11,
+      "file": "11-downloaded-client-report.png",
+      "title": "The actual downloaded HTML report renders independently",
+      "width": 1120,
+      "height": 1100,
+      "crop": "browser viewport",
+      "assertions": [
+        "This is the file downloaded from the interface, rendered from disk in a new browser tab.",
+        "Exactly three Fern & Field records: two complete, one unresolved.",
+        "Other customers are absent from the exported HTML; the demonstration warning is visible."
+      ],
+      "sha256": "b13c33c1194f0b9057cfb9aa7112704b2e3cb1b12a1450219bebf6e3d01b5b5b"
+    },
+    {
+      "number": 12,
+      "file": "12-empty-workspace.png",
+      "title": "An explicit empty start removes fictional records",
+      "width": 1440,
+      "height": 1000,
+      "crop": "browser viewport",
+      "assertions": [
+        "The user confirmed clearing the workspace.",
+        "Zero sites and zero positive outcomes; the next action is to add or import inventory.",
+        "No fictional record was silently converted into a real customer record."
+      ],
+      "sha256": "57c1877c44cd1778184795ead3e33fe1e087179a05c384ac0e28e6df782bc022"
+    },
+    {
+      "number": 13,
+      "file": "13-advisory-sources.png",
+      "title": "The dated advisory baseline is inspectable",
+      "width": 580,
+      "height": 746,
+      "crop": "#sourcesDialog",
+      "assertions": [
+        "Catalog ID, review date, expiry, evidence window, CVE scope and upstream minimum versions are shown.",
+        "Five primary reference links are present; this is identified as a dated snapshot."
+      ],
+      "sha256": "ee234bddc0a3f0638cdb07a3c282b3591e845ddb4b553c90961d2b4ff43edfe3"
+    },
+    {
+      "number": 14,
+      "file": "14-mobile-overview.png",
+      "title": "The overview works in a 390-pixel viewport",
+      "width": 390,
+      "height": 844,
+      "crop": "browser viewport",
+      "assertions": [
+        "The four status cards and demo banner are visible in the mobile layout.",
+        "Document and scrolling-element widths do not exceed the viewport."
+      ],
+      "sha256": "d44cd62e2b048ccb581621f1e94381836d4abc6f2d3fc1ff6acdf59fe1b3c4be"
+    },
+    {
+      "number": 15,
+      "file": "15-mobile-evidence-editor.png",
+      "title": "A mobile edit is contained and can be cancelled",
+      "width": 390,
+      "height": 844,
+      "crop": "browser viewport",
+      "assertions": [
+        "The drawer and its fields fit the mobile viewport; Save and Cancel remain reachable.",
+        "The visible name change is an unsaved draft."
+      ],
+      "sha256": "65242df424b0ac0ec803d849720cdae3ae9653da72da809e2ca05ea7ea73307b"
+    },
+    {
+      "number": 16,
+      "file": "16-expired-catalog.png",
+      "title": "An expired catalog prevents positive outcomes",
+      "width": 1440,
+      "height": 1000,
+      "crop": "browser viewport",
+      "assertions": [
+        "Separate test browser clock: 2026-10-29T00:59:59.000Z.",
+        "The review-required notice is visible.",
+        "Even fresh demo evidence receives no complete or provider-confirmed outcome while the catalog is expired."
+      ],
+      "sha256": "d47d1ca98c9a4627d78979feb232a937fbe0854a6cc729c693bd2de01e31f53a"
+    }
+  ]
+}

@@ -53,7 +53,25 @@ Initial planning dates use America/Chicago; integration dates are explicitly mar
 - [`212829b`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/212829bbf7903a155185e05bc7200e29f652783b): assessment engine, report CLI, business/operational docs, and independent-review corrections.
 - [`b6a084c`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/b6a084c708b1d66bcc2a51798c10b5ec9d2a2ce6): dashboard, browser smoke workflow, and continuous-validation matrix.
 - Final handover commit: completed README, screenshots, validation evidence, and browser-review corrections. Its SHA is available in the repository history.
+- [`48533e2`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/48533e2cd1068991c1458237012648f389a69da7): reproducible hypothesis experiments, raw evidence, browser-capacity scope correction, and primary-source business research. All three Node.js CI jobs passed in [run 39721124501](https://github.com/tobiko-dev/php-global-crisis-fix/actions/runs/39721124501).
+- Illustrated follow-up: 16 real screenshots, assertion/checksum manifest, downloaded customer report, central hypothesis ledger, revised business offer, and integrated documentation. Its commit follows the experiment checkpoint in repository history.
 
 ## Commercial status
 
 No customer interviews, outreach, paid pilots, or production access have been performed. Pricing and willingness to pay remain hypotheses. All demonstration data is fictional.
+
+## 2026-10-21 America/Chicago — Hypothesis tests and illustrated documentation
+
+Requested follow-up: test the assumptions and document the product in use with plenty of screenshots. Raw run timestamps are October 22 UTC.
+
+- Wrote engineering acceptance criteria before measurement, including explicit workflow outcomes, customer-only exports, expiry, count/byte limits, and performance budgets. Kept the original criteria in [EXPERIMENTS.md](docs/EXPERIMENTS.md).
+- Ran the six engine/export hypotheses: all 15 checks passed. Published every operator stage, all 75 timed samples, fixture and output hashes, the constructed version-rule comparison, and actual HTML/CSV artifacts.
+- Retained the limitations: 1,000 large records can exceed 5 MiB; the export maximum was materially slower than its median; operator assertions remain unauthenticated; a deliberately weak version-only rule is not a real competitor benchmark.
+- Ran nine actual-browser capacity trials across 10, 100, and 1,000 records. All met the implemented timing and count checks. The largest-fleet imports ranged from 579 to 1,479 ms on the shared host. Published [the protocol and raw evidence](docs/CAPACITY.md), including a review correction explaining that input responsiveness, exports, and field-level persistence were not measured by this runner.
+- Captured and visually reviewed 16 unretouched screenshots while the real UI performed asserted actions. Included saved/reloaded evidence, provider assertions, a merge, a rejected import with preserved data, the actual downloaded customer report, empty state, source review, mobile use, and catalog expiry.
+- Saved [the illustrated walkthrough](docs/WALKTHROUGH.md), capture manifest with checksums, downloaded report, import fixture, and reproducible browser script. The capture observed zero JavaScript/CSP errors and zero external requests. No product source changes were needed.
+- Researched primary incident notices and existing agency products. Found coordination friction but also free/established dashboards and reports. Narrowed the buyer and offer in [BUSINESS.md](docs/BUSINESS.md); retained the $150–300 single-server scope as an untested price.
+- Added [the hypothesis ledger](docs/HYPOTHESES.md) linking completed evidence to decisions and explicitly unperformed customer experiments. Added `npm run experiments` without runtime dependencies or mandatory CI latency gates.
+- Verified screenshot dimensions/checksums and the downloaded report hash. Publication review caught newline normalization in the generated CSV; restored its original CRLF bytes so the published artifact matches the recorded experiment hash.
+
+The remaining business question is whether a qualified agency will pay for the review and handover after its existing tools and providers have done their work. These engineering runs and public sources do not answer it.

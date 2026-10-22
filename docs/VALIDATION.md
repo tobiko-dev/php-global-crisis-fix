@@ -1,5 +1,19 @@
 # Validation record
 
+## Hypothesis experiments and illustrated use — October 21, 2026 America/Chicago
+
+This follow-up phase tested product assumptions with fictional inventories and researched business assumptions through public primary sources. UTC timestamps in the raw execution records fall on October 22. No customer participated and no real deployment was changed.
+
+| Exercise | Observed result | Evidence |
+| --- | --- | --- |
+| Six engine/export hypotheses | **15 checks passed.** Staged operator evidence, exact-customer HTML/CSV isolation, evidence/catalog expiry, and API/CLI input boundaries matched their declared criteria. | [Protocol and interpretation](EXPERIMENTS.md), [raw results](../examples/experiments/run-2026-10-22/results.json) |
+| Engine/report capacity | **75 timed samples plus nine warmups.** At 1,000 records, assessment p95 was 50.569 ms; combined HTML/CSV export p95 was 226.857 ms. All samples, including the 815.463 ms export maximum, are retained. | [Measurements and workload](EXPERIMENTS.md#measured-scale) |
+| Actual browser capacity | **Nine trials passed**, three each at 10, 100, and 1,000 records. Implemented event-to-paint timing and stored/rendered count checks passed; no JavaScript/CSP errors or external requests. | [Methods, scope correction, and results](CAPACITY.md), [raw samples](evidence/browser-capacity.json) |
+| Illustrated browser workflow | **All 16 scenarios passed**, each with a real screenshot and assertions. The actual downloaded HTML was saved and opened; customer scope, mobile cancellation, and expired-catalog behavior were checked. No JavaScript/CSP errors or external requests. | [Walkthrough](WALKTHROUGH.md), [capture manifest](assets/walkthrough/manifest.json) |
+| Commercial hypotheses | Research found evidence of coordination friction and strong existing dashboard/report substitutes. Price, human productivity, paid demand, and repeat purchasing remain untested. | [Research](RESEARCH.md), [hypothesis ledger](HYPOTHESES.md) |
+
+The browser used Chromium **131.0.6778.0** and Playwright **1.62.1**. Timing and capture clocks, machine information, output sizes, and interpretation limits are in the linked protocols. Screenshots are unretouched captures of fictional data. No application source changes were required by this phase. The new experiment scripts supplement the existing correctness tests; local latency budgets are not imposed on arbitrary CI machines.
+
 ## Local automated run — October 22, 2026 UTC
 
 Environment: Linux, Node.js **24.19.0**, Python **3.12.14**. Results below describe this build environment; they do not establish production compatibility or verify any customer's systems.
@@ -66,6 +80,8 @@ Set `CHROMIUM_EXECUTABLE_PATH` to use a separately installed Chromium. Set `UI_S
 `.github/workflows/ci.yml` runs the JavaScript checks on Node.js **20, 22, and 24**, collector checks with Python **3.11**, and the demo report command.
 
 The first integration checkpoint, [`b6a084c`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/b6a084c708b1d66bcc2a51798c10b5ec9d2a2ce6), passed **all three hosted matrix jobs** in [Actions run 39712971437](https://github.com/tobiko-dev/php-global-crisis-fix/actions/runs/39712971437). Each job completed the JavaScript suite, collector checks, and demo report generation successfully. Consult [the latest workflow runs](https://github.com/tobiko-dev/php-global-crisis-fix/actions/workflows/ci.yml) for subsequent commits.
+
+The published hypothesis/research checkpoint, [`48533e2`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/48533e2cd1068991c1458237012648f389a69da7), also passed **all three Node.js 20/22/24 jobs**, including JavaScript tests, collector checks, and demo generation, in [Actions run 39721124501](https://github.com/tobiko-dev/php-global-crisis-fix/actions/runs/39721124501). The optional timing experiments and screenshots have their separately recorded local results above; those measurements are not part of this CI matrix.
 
 ## Limits
 

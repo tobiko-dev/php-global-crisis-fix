@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "organization": "DEMO — imported hosting inventory",
+  "demo": true,
+  "assets": [
+    {
+      "id": "demo-004",
+      "client": "Harbor Goods",
+      "name": "API server",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Demo hosting team",
+      "phpVersion": "8.4.27",
+      "distribution": "upstream",
+      "observation": "cli",
+      "observedAt": "2026-10-22T13:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional CLI version only; active web runtime has not been checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "",
+      "smokeTestAt": "",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-009",
+      "name": "DEMO — Seasonal microsite",
+      "client": "Fern & Field",
+      "environment": "staging",
+      "owner": "Demo hosting team",
+      "provider": "Fictional managed hosting",
+      "distribution": "unknown",
+      "observation": "unknown",
+      "evidenceNote": "FICTIONAL WALKTHROUGH: newly discovered inventory, runtime evidence still missing."
+    }
+  ]
+}

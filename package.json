@@ -9,6 +9,7 @@
     "start": "node scripts/serve.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:collector": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "experiments": "node scripts/test-hypotheses.mjs",
     "demo": "node bin/php-response.mjs demo --format html --out reports/demo.html",
     "assess": "node bin/php-response.mjs assess"
   },

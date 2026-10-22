@@ -1,0 +1,413 @@
+{
+  "fictional": true,
+  "assessmentClock": "2026-10-22T12:00:00Z",
+  "journeys": [
+    {
+      "id": "self-managed",
+      "stages": [
+        {
+          "step": 1,
+          "actor": "Example operator",
+          "action": "Record supplied CLI observation",
+          "expectedStatus": "verification-needed",
+          "input": {
+            "id": "fictional-upstream",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional storefront",
+            "environment": "production",
+            "provider": "Fictional self-managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.26",
+            "distribution": "upstream",
+            "observation": "cli",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: Local CLI output was supplied; the serving web runtime has not been checked.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": false,
+              "confirmedAt": "",
+              "reference": "",
+              "reviewer": ""
+            }
+          },
+          "assessment": {
+            "status": "verification-needed",
+            "label": "Verification needed",
+            "reasons": [
+              "CLI PHP can differ from the PHP runtime serving web requests.",
+              "The recorded version warrants an update or backport review, but does not establish the active upstream web runtime.",
+              "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+              "Application check is missing or is not a real timezone-qualified timestamp."
+            ],
+            "nextActions": [
+              "Observe the web runtime after updating and restarting all relevant workers.",
+              "Review update availability and obtain runtime or vendor evidence.",
+              "Confirm the update is active across all relevant workers and record the restart time.",
+              "Check the important application flows and record when they passed."
+            ],
+            "fixedVersion": "8.4.27",
+            "evidenceAgeHours": 1
+          }
+        },
+        {
+          "step": 2,
+          "actor": "Example operator",
+          "action": "Record an active web-runtime observation",
+          "expectedStatus": "action-required",
+          "input": {
+            "id": "fictional-upstream",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional storefront",
+            "environment": "production",
+            "provider": "Fictional self-managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.26",
+            "distribution": "upstream",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: The active web runtime was observed on the older upstream release.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": false,
+              "confirmedAt": "",
+              "reference": "",
+              "reviewer": ""
+            }
+          },
+          "assessment": {
+            "status": "action-required",
+            "label": "Action required",
+            "reasons": [
+              "The recorded upstream web runtime 8.4.26 is below the 8.4.27 fix."
+            ],
+            "nextActions": [
+              "Apply the vendor update for this environment; the upstream minimum on this branch is 8.4.27.",
+              "Confirm all relevant workers use the update, then observe the web runtime and check the application."
+            ],
+            "fixedVersion": "8.4.27",
+            "evidenceAgeHours": 1
+          }
+        },
+        {
+          "step": 3,
+          "actor": "Example operator",
+          "action": "Record the installed update",
+          "expectedStatus": "verification-needed",
+          "input": {
+            "id": "fictional-upstream",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional storefront",
+            "environment": "production",
+            "provider": "Fictional self-managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.27",
+            "distribution": "upstream",
+            "observation": "installed-package",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: An updated package is installed. Existing web workers have not yet been verified.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": false,
+              "confirmedAt": "",
+              "reference": "",
+              "reviewer": ""
+            }
+          },
+          "assessment": {
+            "status": "verification-needed",
+            "label": "Verification needed",
+            "reasons": [
+              "An installed package does not establish which code existing web workers are running.",
+              "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+              "Application check is missing or is not a real timezone-qualified timestamp."
+            ],
+            "nextActions": [
+              "Observe the web runtime after updating and restarting all relevant workers.",
+              "Confirm the update is active across all relevant workers and record the restart time.",
+              "Check the important application flows and record when they passed."
+            ],
+            "fixedVersion": "8.4.27",
+            "evidenceAgeHours": 1
+          }
+        },
+        {
+          "step": 4,
+          "actor": "Example operator",
+          "action": "Record worker restart and fixed web-runtime evidence",
+          "expectedStatus": "verification-needed",
+          "input": {
+            "id": "fictional-upstream",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional storefront",
+            "environment": "production",
+            "provider": "Fictional self-managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.27",
+            "distribution": "upstream",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "2026-10-22T10:50:00Z",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": false,
+              "confirmedAt": "",
+              "reference": "",
+              "reviewer": ""
+            }
+          },
+          "assessment": {
+            "status": "verification-needed",
+            "label": "Verification needed",
+            "reasons": [
+              "Application check is missing or is not a real timezone-qualified timestamp."
+            ],
+            "nextActions": [
+              "Check the important application flows and record when they passed."
+            ],
+            "fixedVersion": "8.4.27",
+            "evidenceAgeHours": 1
+          }
+        },
+        {
+          "step": 5,
+          "actor": "Example operator",
+          "action": "Record the subsequent application check",
+          "expectedStatus": "evidence-complete",
+          "input": {
+            "id": "fictional-upstream",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional storefront",
+            "environment": "production",
+            "provider": "Fictional self-managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.27",
+            "distribution": "upstream",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "2026-10-22T10:50:00Z",
+            "smokeTestAt": "2026-10-22T11:05:00Z",
+            "providerConfirmation": {
+              "coversBothCves": false,
+              "confirmedAt": "",
+              "reference": "",
+              "reviewer": ""
+            }
+          },
+          "assessment": {
+            "status": "evidence-complete",
+            "label": "Evidence complete",
+            "reasons": [
+              "Recorded active web-runtime version 8.4.27 meets the 8.4.27 minimum for this branch.",
+              "Fresh, ordered runtime, worker restart, and application-check evidence has a named reviewer.",
+              "Evidence is operator supplied; this outcome is not a guarantee of security or absence of previous compromise."
+            ],
+            "nextActions": [
+              "Retain the evidence and recheck it when the deployment or advisory changes."
+            ],
+            "fixedVersion": "8.4.27",
+            "evidenceAgeHours": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "managed-hosting",
+      "stages": [
+        {
+          "step": 1,
+          "actor": "Example operator",
+          "action": "Record the ambiguous vendor build",
+          "expectedStatus": "verification-needed",
+          "input": {
+            "id": "fictional-vendor",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional members portal",
+            "environment": "production",
+            "provider": "Fictional managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.26-vendor1",
+            "distribution": "vendor",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": false,
+              "confirmedAt": "",
+              "reference": "",
+              "reviewer": ""
+            }
+          },
+          "assessment": {
+            "status": "verification-needed",
+            "label": "Verification needed",
+            "reasons": [
+              "Vendor builds may contain backported fixes that cannot be inferred from their upstream version number.",
+              "The PHP version is missing, customized, or not an exact stable version.",
+              "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+              "Application check is missing or is not a real timezone-qualified timestamp."
+            ],
+            "nextActions": [
+              "Record the exact vendor package/build and a provider confirmation covering both CVEs, or establish upstream build provenance.",
+              "Collect the exact active web-runtime version and vendor package information.",
+              "Confirm the update is active across all relevant workers and record the restart time.",
+              "Check the important application flows and record when they passed."
+            ],
+            "fixedVersion": null,
+            "evidenceAgeHours": 1
+          }
+        },
+        {
+          "step": 2,
+          "actor": "Example operator",
+          "action": "Record a provider assertion covering both CVEs",
+          "expectedStatus": "provider-confirmed",
+          "input": {
+            "id": "fictional-vendor",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional members portal",
+            "environment": "production",
+            "provider": "Fictional managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.26-vendor1",
+            "distribution": "vendor",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:00:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": true,
+              "confirmedAt": "2026-10-22T11:10:00Z",
+              "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+              "reviewer": "Example operator"
+            }
+          },
+          "assessment": {
+            "status": "provider-confirmed",
+            "label": "Provider confirmed",
+            "reasons": [
+              "An operator recorded a current, specific provider confirmation covering both catalog CVEs.",
+              "This is a provider assertion, not an independently verified web-runtime observation."
+            ],
+            "nextActions": [
+              "Retain the provider reference and confirm it applies to this exact customer environment."
+            ],
+            "fixedVersion": null,
+            "evidenceAgeHours": 0.8333333333333334
+          }
+        },
+        {
+          "step": 3,
+          "actor": "Example operator",
+          "action": "Record a newer lower-prefix web observation",
+          "expectedStatus": "verification-needed",
+          "input": {
+            "id": "fictional-vendor",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional members portal",
+            "environment": "production",
+            "provider": "Fictional managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.26-vendor1",
+            "distribution": "vendor",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:30:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": true,
+              "confirmedAt": "2026-10-22T11:10:00Z",
+              "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+              "reviewer": "Example operator"
+            }
+          },
+          "assessment": {
+            "status": "verification-needed",
+            "label": "Verification needed",
+            "reasons": [
+              "The provider assertion predates a lower-version web-runtime observation; establish whether the observed build contains the backport."
+            ],
+            "nextActions": [
+              "Obtain a confirmation that explicitly covers the observed package/build and this deployment."
+            ],
+            "fixedVersion": null,
+            "evidenceAgeHours": 0.5
+          }
+        },
+        {
+          "step": 4,
+          "actor": "Example operator",
+          "action": "Renew the provider assertion for the observed build",
+          "expectedStatus": "provider-confirmed",
+          "input": {
+            "id": "fictional-vendor",
+            "client": "Pine & Paper (fictional)",
+            "name": "Fictional members portal",
+            "environment": "production",
+            "provider": "Fictional managed host",
+            "owner": "Example operations team",
+            "phpVersion": "8.4.26-vendor1",
+            "distribution": "vendor",
+            "observation": "web-runtime",
+            "observedAt": "2026-10-22T11:30:00Z",
+            "evidenceUrl": "",
+            "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+            "reviewer": "Example operator",
+            "restartConfirmedAt": "",
+            "smokeTestAt": "",
+            "providerConfirmation": {
+              "coversBothCves": true,
+              "confirmedAt": "2026-10-22T11:40:00Z",
+              "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+              "reviewer": "Example operator"
+            }
+          },
+          "assessment": {
+            "status": "provider-confirmed",
+            "label": "Provider confirmed",
+            "reasons": [
+              "An operator recorded a current, specific provider confirmation covering both catalog CVEs.",
+              "This is a provider assertion, not an independently verified web-runtime observation."
+            ],
+            "nextActions": [
+              "Retain the provider reference and confirm it applies to this exact customer environment."
+            ],
+            "fixedVersion": null,
+            "evidenceAgeHours": 0.3333333333333333
+          }
+        }
+      ]
+    }
+  ],
+  "roundTripSummary": {
+    "total": 2,
+    "actionRequired": 0,
+    "verificationNeeded": 0,
+    "evidenceComplete": 1,
+    "providerConfirmed": 1
+  }
+}

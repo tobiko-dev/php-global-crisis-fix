@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "organization": "Example Response Studio — experiment",
+  "demo": true,
+  "assets": [
+    {
+      "id": "fictional-upstream",
+      "client": "Pine & Paper (fictional)",
+      "name": "Fictional storefront",
+      "environment": "production",
+      "provider": "Fictional self-managed host",
+      "owner": "Example operations team",
+      "phpVersion": "8.4.27",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T11:00:00Z",
+      "evidenceUrl": "",
+      "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+      "reviewer": "Example operator",
+      "restartConfirmedAt": "2026-10-22T10:50:00Z",
+      "smokeTestAt": "2026-10-22T11:05:00Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "fictional-vendor",
+      "client": "Pine & Paper (fictional)",
+      "name": "Fictional members portal",
+      "environment": "production",
+      "provider": "Fictional managed host",
+      "owner": "Example operations team",
+      "phpVersion": "8.4.26-vendor1",
+      "distribution": "vendor",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T11:30:00Z",
+      "evidenceUrl": "",
+      "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+      "reviewer": "Example operator",
+      "restartConfirmedAt": "",
+      "smokeTestAt": "",
+      "providerConfirmation": {
+        "coversBothCves": true,
+        "confirmedAt": "2026-10-22T11:40:00Z",
+        "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+        "reviewer": "Example operator"
+      }
+    },
+    {
+      "id": "foreign-A",
+      "client": "FOREIGN_A_CLIENT",
+      "name": "FOREIGN_A_SITE",
+      "environment": "production",
+      "provider": "FOREIGN_A_PROVIDER",
+      "owner": "FOREIGN_A_OWNER",
+      "phpVersion": "8.4.27",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T11:00:00Z",
+      "evidenceUrl": "https://example.invalid/FOREIGN_A_EVIDENCE_URL",
+      "evidenceNote": "FOREIGN_A_EVIDENCE_NOTE",
+      "reviewer": "FOREIGN_A_REVIEWER",
+      "restartConfirmedAt": "2026-10-22T10:50:00Z",
+      "smokeTestAt": "2026-10-22T11:05:00Z",
+      "providerConfirmation": {
+        "coversBothCves": true,
+        "confirmedAt": "2026-10-22T11:30:00Z",
+        "reference": "FOREIGN_A_PROVIDER_REFERENCE",
+        "reviewer": "FOREIGN_A_PROVIDER_REVIEWER"
+      }
+    },
+    {
+      "id": "foreign-B",
+      "client": "FOREIGN_B_CLIENT",
+      "name": "FOREIGN_B_SITE",
+      "environment": "production",
+      "provider": "FOREIGN_B_PROVIDER",
+      "owner": "FOREIGN_B_OWNER",
+      "phpVersion": "8.4.27",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T11:00:00Z",
+      "evidenceUrl": "https://example.invalid/FOREIGN_B_EVIDENCE_URL",
+      "evidenceNote": "FOREIGN_B_EVIDENCE_NOTE",
+      "reviewer": "FOREIGN_B_REVIEWER",
+      "restartConfirmedAt": "2026-10-22T10:50:00Z",
+      "smokeTestAt": "2026-10-22T11:05:00Z",
+      "providerConfirmation": {
+        "coversBothCves": true,
+        "confirmedAt": "2026-10-22T11:30:00Z",
+        "reference": "FOREIGN_B_PROVIDER_REFERENCE",
+        "reviewer": "FOREIGN_B_PROVIDER_REVIEWER"
+      }
+    }
+  ]
+}

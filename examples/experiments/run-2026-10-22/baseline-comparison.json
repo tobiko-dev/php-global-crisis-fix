@@ -1,0 +1,554 @@
+{
+  "fictional": true,
+  "assessmentClock": "2026-10-22T12:00:00Z",
+  "warning": "Deliberately selected cases and a deliberately naive rule. Not a human benchmark, accuracy estimate, market test, or proof of time savings.",
+  "baselineRule": "Extract leading numeric version; compare its patch number with the known branch minimum. Ignore all other evidence. At/above = close item, below = update, unknown branch/version = unknown.",
+  "productDecisionMap": {
+    "evidence-complete": "close item",
+    "provider-confirmed": "close item",
+    "action-required": "update",
+    "verification-needed": "unknown"
+  },
+  "summary": {
+    "curatedCases": 15,
+    "policyDisagreements": 12,
+    "baselineClosesUnresolved": [
+      "fixed-cli",
+      "fixed-package",
+      "no-restart",
+      "no-check",
+      "no-reviewer",
+      "stale-evidence",
+      "prerelease",
+      "vendor-modern"
+    ],
+    "baselineUpdatesUnresolvedVendor": [
+      "vendor-unknown",
+      "vendor-new-observation"
+    ]
+  },
+  "cases": [
+    {
+      "id": "complete-upstream",
+      "description": "Complete, fresh upstream web evidence",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "evidence-complete",
+      "productDecision": "close item",
+      "disagrees": false,
+      "reasons": [
+        "Recorded active web-runtime version 8.4.27 meets the 8.4.27 minimum for this branch.",
+        "Fresh, ordered runtime, worker restart, and application-check evidence has a named reviewer.",
+        "Evidence is operator supplied; this outcome is not a guarantee of security or absence of previous compromise."
+      ]
+    },
+    {
+      "id": "old-upstream",
+      "description": "Old upstream web runtime",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.26",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: The active web runtime was observed on the older upstream release.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "update",
+      "productStatus": "action-required",
+      "productDecision": "update",
+      "disagrees": false,
+      "reasons": [
+        "The recorded upstream web runtime 8.4.26 is below the 8.4.27 fix."
+      ]
+    },
+    {
+      "id": "fixed-cli",
+      "description": "Fixed version observed only in CLI",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "cli",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "CLI PHP can differ from the PHP runtime serving web requests."
+      ]
+    },
+    {
+      "id": "fixed-package",
+      "description": "Fixed installed package without running-worker evidence",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "installed-package",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: An updated package is installed. Existing web workers have not yet been verified.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "An installed package does not establish which code existing web workers are running.",
+        "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+        "Application check is missing or is not a real timezone-qualified timestamp."
+      ]
+    },
+    {
+      "id": "no-restart",
+      "description": "Fixed web version with no restart confirmation",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "Worker restart confirmation is missing or is not a real timezone-qualified timestamp."
+      ]
+    },
+    {
+      "id": "no-check",
+      "description": "Fixed web version with no application check",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "Application check is missing or is not a real timezone-qualified timestamp."
+      ]
+    },
+    {
+      "id": "no-reviewer",
+      "description": "Fixed web version with no reviewer",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "The runtime evidence has no named reviewer."
+      ]
+    },
+    {
+      "id": "stale-evidence",
+      "description": "Fixed web version with stale observations",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-18T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-18T10:50:00Z",
+        "smokeTestAt": "2026-10-18T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "Runtime observation is older than the 72-hour evidence window.",
+        "Worker restart confirmation is older than the 72-hour evidence window.",
+        "Application check is older than the 72-hour evidence window."
+      ]
+    },
+    {
+      "id": "vendor-unknown",
+      "description": "Older vendor version with unknown backport status",
+      "input": {
+        "id": "fictional-vendor",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional members portal",
+        "environment": "production",
+        "provider": "Fictional managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.26-vendor1",
+        "distribution": "vendor",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "update",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "Vendor builds may contain backported fixes that cannot be inferred from their upstream version number.",
+        "The PHP version is missing, customized, or not an exact stable version.",
+        "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+        "Application check is missing or is not a real timezone-qualified timestamp."
+      ]
+    },
+    {
+      "id": "vendor-confirmed",
+      "description": "Older vendor version with a fresh provider assertion",
+      "input": {
+        "id": "fictional-vendor",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional members portal",
+        "environment": "production",
+        "provider": "Fictional managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.26-vendor1",
+        "distribution": "vendor",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": true,
+          "confirmedAt": "2026-10-22T11:10:00Z",
+          "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+          "reviewer": "Example operator"
+        }
+      },
+      "baselineDecision": "update",
+      "productStatus": "provider-confirmed",
+      "productDecision": "close item",
+      "disagrees": true,
+      "reasons": [
+        "An operator recorded a current, specific provider confirmation covering both catalog CVEs.",
+        "This is a provider assertion, not an independently verified web-runtime observation."
+      ]
+    },
+    {
+      "id": "vendor-new-observation",
+      "description": "A lower-prefix vendor observation after the assertion",
+      "input": {
+        "id": "fictional-vendor",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional members portal",
+        "environment": "production",
+        "provider": "Fictional managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.26-vendor1",
+        "distribution": "vendor",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:30:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: A vendor build was observed; its numeric version does not establish whether fixes were backported.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": true,
+          "confirmedAt": "2026-10-22T11:10:00Z",
+          "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+          "reviewer": "Example operator"
+        }
+      },
+      "baselineDecision": "update",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "The provider assertion predates a lower-version web-runtime observation; establish whether the observed build contains the backport."
+      ]
+    },
+    {
+      "id": "future-branch",
+      "description": "Future branch outside the reviewed catalog",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.6.0",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "unknown",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": false,
+      "reasons": [
+        "This PHP branch is outside the reviewed catalog."
+      ]
+    },
+    {
+      "id": "prerelease",
+      "description": "Prerelease at the numeric minimum",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27RC1",
+        "distribution": "upstream",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "A pre-release or development version is not a fixed stable release in this catalog."
+      ]
+    },
+    {
+      "id": "vendor-modern",
+      "description": "Modern vendor version without build confirmation",
+      "input": {
+        "id": "fictional-upstream",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "8.4.27-vendor1",
+        "distribution": "vendor",
+        "observation": "web-runtime",
+        "observedAt": "2026-10-22T11:00:00Z",
+        "evidenceUrl": "",
+        "evidenceNote": "FICTIONAL: Example operator recorded the active web runtime after restarting every relevant worker.\nNo live deployment was inspected.",
+        "reviewer": "Example operator",
+        "restartConfirmedAt": "2026-10-22T10:50:00Z",
+        "smokeTestAt": "2026-10-22T11:05:00Z",
+        "providerConfirmation": {
+          "coversBothCves": false,
+          "confirmedAt": "",
+          "reference": "",
+          "reviewer": ""
+        }
+      },
+      "baselineDecision": "close item",
+      "productStatus": "verification-needed",
+      "productDecision": "unknown",
+      "disagrees": true,
+      "reasons": [
+        "Vendor builds may contain backported fixes that cannot be inferred from their upstream version number.",
+        "The PHP version is missing, customized, or not an exact stable version."
+      ]
+    },
+    {
+      "id": "provider-no-runtime",
+      "description": "Provider assertion without a runtime observation",
+      "input": {
+        "id": "fictional-unknown",
+        "client": "Pine & Paper (fictional)",
+        "name": "Fictional storefront",
+        "environment": "production",
+        "provider": "Fictional self-managed host",
+        "owner": "Example operations team",
+        "phpVersion": "",
+        "distribution": "unknown",
+        "observation": "unknown",
+        "observedAt": "",
+        "evidenceUrl": "",
+        "evidenceNote": "",
+        "reviewer": "",
+        "restartConfirmedAt": "",
+        "smokeTestAt": "",
+        "providerConfirmation": {
+          "coversBothCves": true,
+          "confirmedAt": "2026-10-22T11:10:00Z",
+          "reference": "FICTIONAL-PROVIDER-42: both catalog CVEs covered for this customer, deployment, and exact observed package build.",
+          "reviewer": "Example operator"
+        }
+      },
+      "baselineDecision": "unknown",
+      "productStatus": "provider-confirmed",
+      "productDecision": "close item",
+      "disagrees": true,
+      "reasons": [
+        "An operator recorded a current, specific provider confirmation covering both catalog CVEs.",
+        "This is a provider assertion, not an independently verified web-runtime observation."
+      ]
+    }
+  ]
+}

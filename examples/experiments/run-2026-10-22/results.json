@@ -1,0 +1,1442 @@
+{
+  "schemaVersion": 1,
+  "fictional": true,
+  "startedAt": "2026-10-22T03:58:33.458Z",
+  "assessmentClock": "2026-10-22T12:00:00Z",
+  "protocolPath": "docs/EXPERIMENTS.md",
+  "protocolSha256": "46850edbec9be671d059b3671a88eb38bd092781f32887718ff72279f9e734e0",
+  "sourceSha256": {
+    "src/core.mjs": "c227c4d7fa37a4f1daae7459dcb9945766403637e6e244a46b29a192145b4d71",
+    "src/catalog.mjs": "ec61f2c450ab7f092c7ab2df43e66c569166c5c4c3c310d5ecf84431cb3ee693",
+    "scripts/test-hypotheses.mjs": "a15ea395d6908826069014924b6c244abc97047c9c5451b823ab02960ce46cbd"
+  },
+  "machine": {
+    "node": "v24.19.0",
+    "v8": "13.6.233.17-node.51",
+    "platform": "linux",
+    "architecture": "x64",
+    "osRelease": "6.18.55",
+    "cpuModel": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "logicalCpusReported": 9,
+    "availableParallelismReported": 8,
+    "totalMemoryBytesReported": 10475814912,
+    "gitRevisionBeforeRun": "e134a62020dd25b3c75f194d3edbb880ee06dc21",
+    "executionNotes": "Shared container; reported resources are not exclusive allocations. CPU scheduling and concurrent load are uncontrolled. No hostname or customer data is recorded."
+  },
+  "catalog": {
+    "id": "php2shell-2026-10-21",
+    "reviewedAt": "2026-10-21T14:00:00Z",
+    "expiresAt": "2026-10-28T23:59:59Z"
+  },
+  "experiments": {
+    "H1": {
+      "journeys": [
+        {
+          "id": "self-managed",
+          "statuses": [
+            "verification-needed",
+            "action-required",
+            "verification-needed",
+            "verification-needed",
+            "evidence-complete"
+          ]
+        },
+        {
+          "id": "managed-hosting",
+          "statuses": [
+            "verification-needed",
+            "provider-confirmed",
+            "verification-needed",
+            "provider-confirmed"
+          ]
+        }
+      ],
+      "finalSummary": {
+        "total": 2,
+        "actionRequired": 0,
+        "verificationNeeded": 0,
+        "evidenceComplete": 1,
+        "providerConfirmed": 1
+      }
+    },
+    "H2": {
+      "sourceEnvironments": 4,
+      "selectedEnvironments": 2,
+      "markersChecked": 18,
+      "leakedMarkers": [],
+      "htmlBytes": 7881,
+      "csvBytes": 2366,
+      "htmlCards": 2,
+      "csvDataRows": 2
+    },
+    "H3": {
+      "evidenceAge": {
+        "unchangedInputSha256": "9726d78a2aa6e765fc38e3f690d17c985ef950f679e93903f26a1f4faf00d869",
+        "fresh": {
+          "clock": "2026-10-22T12:00:00Z",
+          "catalogFresh": true,
+          "summary": {
+            "total": 2,
+            "actionRequired": 0,
+            "verificationNeeded": 0,
+            "evidenceComplete": 1,
+            "providerConfirmed": 1
+          },
+          "statuses": [
+            {
+              "id": "fictional-upstream",
+              "status": "evidence-complete",
+              "reasons": [
+                "Recorded active web-runtime version 8.4.27 meets the 8.4.27 minimum for this branch.",
+                "Fresh, ordered runtime, worker restart, and application-check evidence has a named reviewer.",
+                "Evidence is operator supplied; this outcome is not a guarantee of security or absence of previous compromise."
+              ]
+            },
+            {
+              "id": "fictional-vendor",
+              "status": "provider-confirmed",
+              "reasons": [
+                "An operator recorded a current, specific provider confirmation covering both catalog CVEs.",
+                "This is a provider assertion, not an independently verified web-runtime observation."
+              ]
+            }
+          ]
+        },
+        "stale": {
+          "clock": "2026-10-25T13:00:00Z",
+          "catalogFresh": true,
+          "summary": {
+            "total": 2,
+            "actionRequired": 0,
+            "verificationNeeded": 2,
+            "evidenceComplete": 0,
+            "providerConfirmed": 0
+          },
+          "statuses": [
+            {
+              "id": "fictional-upstream",
+              "status": "verification-needed",
+              "reasons": [
+                "Runtime observation is older than the 72-hour evidence window.",
+                "Worker restart confirmation is older than the 72-hour evidence window.",
+                "Application check is older than the 72-hour evidence window."
+              ]
+            },
+            {
+              "id": "fictional-vendor",
+              "status": "verification-needed",
+              "reasons": [
+                "Runtime observation is older than the 72-hour evidence window.",
+                "Provider confirmation is older than the 72-hour evidence window.",
+                "Vendor builds may contain backported fixes that cannot be inferred from their upstream version number.",
+                "The PHP version is missing, customized, or not an exact stable version.",
+                "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+                "Application check is missing or is not a real timezone-qualified timestamp."
+              ]
+            }
+          ]
+        }
+      },
+      "catalogBoundary": {
+        "unchangedInputSha256": "bd625c9ff4fe10e9dcb19618a1cd5a6b091d47aa668647747100cf6a7023c69c",
+        "before": {
+          "clock": "2026-10-28T23:59:58Z",
+          "catalogFresh": true,
+          "summary": {
+            "total": 2,
+            "actionRequired": 0,
+            "verificationNeeded": 0,
+            "evidenceComplete": 1,
+            "providerConfirmed": 1
+          },
+          "statuses": [
+            {
+              "id": "fictional-upstream",
+              "status": "evidence-complete",
+              "reasons": [
+                "Recorded active web-runtime version 8.4.27 meets the 8.4.27 minimum for this branch.",
+                "Fresh, ordered runtime, worker restart, and application-check evidence has a named reviewer.",
+                "Evidence is operator supplied; this outcome is not a guarantee of security or absence of previous compromise."
+              ]
+            },
+            {
+              "id": "fictional-vendor",
+              "status": "provider-confirmed",
+              "reasons": [
+                "An operator recorded a current, specific provider confirmation covering both catalog CVEs.",
+                "This is a provider assertion, not an independently verified web-runtime observation."
+              ]
+            }
+          ]
+        },
+        "after": {
+          "clock": "2026-10-29T00:00:00Z",
+          "catalogFresh": false,
+          "summary": {
+            "total": 2,
+            "actionRequired": 0,
+            "verificationNeeded": 2,
+            "evidenceComplete": 0,
+            "providerConfirmed": 0
+          },
+          "statuses": [
+            {
+              "id": "fictional-upstream",
+              "status": "verification-needed",
+              "reasons": [
+                "The advisory catalog has expired."
+              ]
+            },
+            {
+              "id": "fictional-vendor",
+              "status": "verification-needed",
+              "reasons": [
+                "The advisory catalog has expired.",
+                "Vendor builds may contain backported fixes that cannot be inferred from their upstream version number.",
+                "The PHP version is missing, customized, or not an exact stable version.",
+                "Worker restart confirmation is missing or is not a real timezone-qualified timestamp.",
+                "Application check is missing or is not a real timezone-qualified timestamp."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "H4": {
+      "cliClock": "Actual process clock; statuses are not evaluated by this import-limit experiment.",
+      "cases": [
+        {
+          "id": "accepted",
+          "assets": 1000,
+          "inputBytes": 657991,
+          "expected": "accept",
+          "apiAccepted": true,
+          "apiError": "",
+          "cliExitCode": 0,
+          "cliError": "",
+          "cliStderr": "Wrote HTML report: <temporary>/accepted.html",
+          "cliStdoutBytes": 0,
+          "outputExists": true,
+          "outputBytes": 1682489,
+          "inputSha256": "eed7562014ccb63d86e789c2937ac88e4cb23db958e588c4c2601c98c613e870",
+          "memoryUnchanged": true,
+          "fileUnchanged": true,
+          "previousReportUnchanged": true
+        },
+        {
+          "id": "too-many",
+          "assets": 1001,
+          "inputBytes": 658567,
+          "expected": "reject",
+          "apiAccepted": false,
+          "apiError": "Fleet exceeds the 1,000 asset limit.",
+          "cliExitCode": 1,
+          "cliError": "",
+          "cliStderr": "PHP Response Desk: Invalid fleet: Fleet exceeds the 1,000 asset limit.",
+          "cliStdoutBytes": 0,
+          "outputExists": false,
+          "outputBytes": 0,
+          "inputSha256": "42903731c15395dc94ea1577e727ab0a4043aed4d5fbc95f269436e481e71762",
+          "memoryUnchanged": true,
+          "fileUnchanged": true,
+          "previousReportUnchanged": true
+        },
+        {
+          "id": "too-large",
+          "assets": 1000,
+          "inputBytes": 6554791,
+          "expected": "reject",
+          "apiAccepted": false,
+          "apiError": "Fleet exceeds the 5 MiB import limit.",
+          "cliExitCode": 1,
+          "cliError": "",
+          "cliStderr": "PHP Response Desk: Input exceeds the 5 MiB import limit.",
+          "cliStdoutBytes": 0,
+          "outputExists": false,
+          "outputBytes": 0,
+          "inputSha256": "20e4aee2ef113cfb58fd953c1d5be15e9ed51162376b376feb530ee80df26788",
+          "memoryUnchanged": true,
+          "fileUnchanged": true,
+          "previousReportUnchanged": true
+        }
+      ]
+    },
+    "H5": {
+      "warmupsPerSize": 3,
+      "measuredSamplesPerSize": 25,
+      "percentileMethod": "nearest rank",
+      "budgetsMs": {
+        "assessmentP95Ms": 2000,
+        "combinedExportP95Ms": 5000
+      },
+      "measurements": [
+        {
+          "assets": 10,
+          "inputBytes": 6659,
+          "inputSha256": "8692374b7a37f3b63f0c13bf28094419e426bfee8efbd6a8eaa9a1da9caca2b1",
+          "outputBytes": {
+            "assessedJsonBytes": 11745,
+            "htmlBytes": 18300,
+            "csvBytes": 9473
+          },
+          "expectedSummary": {
+            "total": 10,
+            "actionRequired": 1,
+            "verificationNeeded": 6,
+            "evidenceComplete": 1,
+            "providerConfirmed": 2
+          },
+          "actualSummary": {
+            "total": 10,
+            "actionRequired": 1,
+            "verificationNeeded": 6,
+            "evidenceComplete": 1,
+            "providerConfirmed": 2
+          },
+          "stableOutputs": true,
+          "sourceUnchanged": true,
+          "outputHashes": {
+            "html": "c97a76e8054169ac4b257035d275cde59e469a495664195a11fab306d573dcfd",
+            "csv": "ddb47bed2c4c2aa61b24a8c4467ff8a8519813189f41554907e6b3ce50cb822b"
+          },
+          "timingsMs": {
+            "assessmentMs": {
+              "min": 0.134,
+              "median": 0.55,
+              "p95": 4.167,
+              "max": 4.602
+            },
+            "htmlMs": {
+              "min": 0.391,
+              "median": 1.762,
+              "p95": 5.588,
+              "max": 6.682
+            },
+            "csvMs": {
+              "min": 0.394,
+              "median": 2.623,
+              "p95": 3.905,
+              "max": 4.513
+            },
+            "combinedExportMs": {
+              "min": 0.885,
+              "median": 4.26,
+              "p95": 8.193,
+              "max": 10.47
+            },
+            "totalMs": {
+              "min": 1.019,
+              "median": 4.812,
+              "p95": 12.795,
+              "max": 14.637
+            }
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "assessmentMs": 1.5892210000001796,
+              "htmlMs": 0.43407399999978225,
+              "csvMs": 1.2076090000000477,
+              "combinedExportMs": 1.64168299999983,
+              "totalMs": 3.2309040000000095
+            },
+            {
+              "iteration": 2,
+              "assessmentMs": 0.401651000000129,
+              "htmlMs": 0.6178580000000693,
+              "csvMs": 1.2794349999999213,
+              "combinedExportMs": 1.8972929999999906,
+              "totalMs": 2.2989440000001196
+            },
+            {
+              "iteration": 3,
+              "assessmentMs": 0.4248880000000099,
+              "htmlMs": 0.3905019999997421,
+              "csvMs": 3.400086000000101,
+              "combinedExportMs": 3.7905879999998433,
+              "totalMs": 4.215475999999853
+            },
+            {
+              "iteration": 4,
+              "assessmentMs": 0.17754100000001927,
+              "htmlMs": 1.911076000000321,
+              "csvMs": 2.7235940000000483,
+              "combinedExportMs": 4.634670000000369,
+              "totalMs": 4.812211000000389
+            },
+            {
+              "iteration": 5,
+              "assessmentMs": 0.8906739999997626,
+              "htmlMs": 1.3983330000000933,
+              "csvMs": 1.3202369999999064,
+              "combinedExportMs": 2.7185699999999997,
+              "totalMs": 3.6092439999997623
+            },
+            {
+              "iteration": 6,
+              "assessmentMs": 0.13704099999995378,
+              "htmlMs": 5.102644999999939,
+              "csvMs": 2.4415570000001026,
+              "combinedExportMs": 7.544202000000041,
+              "totalMs": 7.681242999999995
+            },
+            {
+              "iteration": 7,
+              "assessmentMs": 1.5127159999997275,
+              "htmlMs": 0.699380999999903,
+              "csvMs": 3.905047000000195,
+              "combinedExportMs": 4.604428000000098,
+              "totalMs": 6.117143999999826
+            },
+            {
+              "iteration": 8,
+              "assessmentMs": 0.15437500000007276,
+              "htmlMs": 0.4084669999997459,
+              "csvMs": 3.547501999999895,
+              "combinedExportMs": 3.955968999999641,
+              "totalMs": 4.110343999999714
+            },
+            {
+              "iteration": 9,
+              "assessmentMs": 0.17388499999970009,
+              "htmlMs": 4.953711999999996,
+              "csvMs": 2.7005600000002232,
+              "combinedExportMs": 7.654272000000219,
+              "totalMs": 7.828156999999919
+            },
+            {
+              "iteration": 10,
+              "assessmentMs": 0.1533889999996063,
+              "htmlMs": 1.1421000000000276,
+              "csvMs": 2.622538000000077,
+              "combinedExportMs": 3.7646380000001045,
+              "totalMs": 3.918026999999711
+            },
+            {
+              "iteration": 11,
+              "assessmentMs": 0.13396999999986292,
+              "htmlMs": 0.4742769999998018,
+              "csvMs": 0.4111570000000029,
+              "combinedExportMs": 0.8854339999998047,
+              "totalMs": 1.0194039999996676
+            },
+            {
+              "iteration": 12,
+              "assessmentMs": 4.601909999999862,
+              "htmlMs": 5.5877009999999245,
+              "csvMs": 2.6050930000001244,
+              "combinedExportMs": 8.192794000000049,
+              "totalMs": 12.79470399999991
+            },
+            {
+              "iteration": 13,
+              "assessmentMs": 2.876784999999927,
+              "htmlMs": 1.762091000000055,
+              "csvMs": 4.512824999999793,
+              "combinedExportMs": 6.274915999999848,
+              "totalMs": 9.151700999999775
+            },
+            {
+              "iteration": 14,
+              "assessmentMs": 4.167022999999972,
+              "htmlMs": 6.681919000000107,
+              "csvMs": 3.787688999999773,
+              "combinedExportMs": 10.46960799999988,
+              "totalMs": 14.636630999999852
+            },
+            {
+              "iteration": 15,
+              "assessmentMs": 0.36484599999994316,
+              "htmlMs": 3.430537000000186,
+              "csvMs": 0.8296739999996134,
+              "combinedExportMs": 4.260210999999799,
+              "totalMs": 4.625056999999742
+            },
+            {
+              "iteration": 16,
+              "assessmentMs": 0.3346959999998944,
+              "htmlMs": 1.6367850000001454,
+              "csvMs": 2.157970000000205,
+              "combinedExportMs": 3.7947550000003503,
+              "totalMs": 4.129451000000245
+            },
+            {
+              "iteration": 17,
+              "assessmentMs": 0.9483940000000075,
+              "htmlMs": 1.2011520000000928,
+              "csvMs": 2.8135779999997794,
+              "combinedExportMs": 4.014729999999872,
+              "totalMs": 4.96312399999988
+            },
+            {
+              "iteration": 18,
+              "assessmentMs": 0.8973399999999856,
+              "htmlMs": 2.6973070000003645,
+              "csvMs": 2.1778259999996408,
+              "combinedExportMs": 4.875133000000005,
+              "totalMs": 5.772472999999991
+            },
+            {
+              "iteration": 19,
+              "assessmentMs": 0.19735799999989467,
+              "htmlMs": 1.5850780000000668,
+              "csvMs": 2.2272039999998015,
+              "combinedExportMs": 3.8122819999998683,
+              "totalMs": 4.009639999999763
+            },
+            {
+              "iteration": 20,
+              "assessmentMs": 0.9019639999996798,
+              "htmlMs": 2.2588670000000093,
+              "csvMs": 1.516646000000037,
+              "combinedExportMs": 3.7755130000000463,
+              "totalMs": 4.677476999999726
+            },
+            {
+              "iteration": 21,
+              "assessmentMs": 0.5927329999999529,
+              "htmlMs": 2.3859590000001845,
+              "csvMs": 2.6278809999998884,
+              "combinedExportMs": 5.013840000000073,
+              "totalMs": 5.606573000000026
+            },
+            {
+              "iteration": 22,
+              "assessmentMs": 1.2793149999997695,
+              "htmlMs": 3.3945410000001175,
+              "csvMs": 3.3020849999998063,
+              "combinedExportMs": 6.696625999999924,
+              "totalMs": 7.975940999999693
+            },
+            {
+              "iteration": 23,
+              "assessmentMs": 0.5498240000001715,
+              "htmlMs": 3.9148150000000896,
+              "csvMs": 3.0660570000000007,
+              "combinedExportMs": 6.98087200000009,
+              "totalMs": 7.530696000000262
+            },
+            {
+              "iteration": 24,
+              "assessmentMs": 1.5398090000003322,
+              "htmlMs": 4.792887000000064,
+              "csvMs": 2.802008999999998,
+              "combinedExportMs": 7.5948960000000625,
+              "totalMs": 9.134705000000395
+            },
+            {
+              "iteration": 25,
+              "assessmentMs": 0.3115739999998368,
+              "htmlMs": 1.4875530000003891,
+              "csvMs": 0.39414899999974295,
+              "combinedExportMs": 1.881702000000132,
+              "totalMs": 2.193275999999969
+            }
+          ]
+        },
+        {
+          "assets": 100,
+          "inputBytes": 65790,
+          "inputSha256": "ca81ce87b39a94fe6e00b61db33e663e99e5fecdd684db1eda3d2dad1ea67267",
+          "outputBytes": {
+            "assessedJsonBytes": 114369,
+            "htmlBytes": 137277,
+            "csvBytes": 90753
+          },
+          "expectedSummary": {
+            "total": 100,
+            "actionRequired": 10,
+            "verificationNeeded": 60,
+            "evidenceComplete": 10,
+            "providerConfirmed": 20
+          },
+          "actualSummary": {
+            "total": 100,
+            "actionRequired": 10,
+            "verificationNeeded": 60,
+            "evidenceComplete": 10,
+            "providerConfirmed": 20
+          },
+          "stableOutputs": true,
+          "sourceUnchanged": true,
+          "outputHashes": {
+            "html": "df04f87f4d61f1c84001756d088e615bea682faab68d6f982aa4ba179beab3cd",
+            "csv": "a9e133535ed431b4fd503a9d72ba519eaa1737e91b69a064cabce66bf780c4ad"
+          },
+          "timingsMs": {
+            "assessmentMs": {
+              "min": 1.132,
+              "median": 1.882,
+              "p95": 6.387,
+              "max": 14.084
+            },
+            "htmlMs": {
+              "min": 3.757,
+              "median": 6.302,
+              "p95": 18.309,
+              "max": 21.055
+            },
+            "csvMs": {
+              "min": 3.132,
+              "median": 5.275,
+              "p95": 14.961,
+              "max": 31.509
+            },
+            "combinedExportMs": {
+              "min": 7.176,
+              "median": 12.654,
+              "p95": 24.777,
+              "max": 49.732
+            },
+            "totalMs": {
+              "min": 8.751,
+              "median": 15.469,
+              "p95": 38.079,
+              "max": 56.119
+            }
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "assessmentMs": 6.387301000000207,
+              "htmlMs": 18.222410999999738,
+              "csvMs": 31.509456000000228,
+              "combinedExportMs": 49.731866999999966,
+              "totalMs": 56.11916800000017
+            },
+            {
+              "iteration": 2,
+              "assessmentMs": 14.084376999999677,
+              "htmlMs": 9.033750999999938,
+              "csvMs": 14.960921000000326,
+              "combinedExportMs": 23.994672000000264,
+              "totalMs": 38.07904899999994
+            },
+            {
+              "iteration": 3,
+              "assessmentMs": 2.52632100000028,
+              "htmlMs": 8.432246999999734,
+              "csvMs": 7.0395010000002,
+              "combinedExportMs": 15.471747999999934,
+              "totalMs": 17.998069000000214
+            },
+            {
+              "iteration": 4,
+              "assessmentMs": 2.8154309999999896,
+              "htmlMs": 21.05542000000014,
+              "csvMs": 3.721249000000171,
+              "combinedExportMs": 24.77666900000031,
+              "totalMs": 27.5921000000003
+            },
+            {
+              "iteration": 5,
+              "assessmentMs": 2.9275189999998474,
+              "htmlMs": 14.641093000000183,
+              "csvMs": 9.60917900000004,
+              "combinedExportMs": 24.250272000000223,
+              "totalMs": 27.17779100000007
+            },
+            {
+              "iteration": 6,
+              "assessmentMs": 5.972299999999905,
+              "htmlMs": 18.309213,
+              "csvMs": 5.017570999999862,
+              "combinedExportMs": 23.32678399999986,
+              "totalMs": 29.299083999999766
+            },
+            {
+              "iteration": 7,
+              "assessmentMs": 1.5604699999998957,
+              "htmlMs": 4.514051999999992,
+              "csvMs": 3.9605200000000877,
+              "combinedExportMs": 8.47457200000008,
+              "totalMs": 10.035041999999976
+            },
+            {
+              "iteration": 8,
+              "assessmentMs": 1.7861829999997099,
+              "htmlMs": 4.781011000000035,
+              "csvMs": 4.150390000000243,
+              "combinedExportMs": 8.931401000000278,
+              "totalMs": 10.717583999999988
+            },
+            {
+              "iteration": 9,
+              "assessmentMs": 1.6780739999999241,
+              "htmlMs": 6.7260590000000775,
+              "csvMs": 7.382681999999932,
+              "combinedExportMs": 14.108741000000009,
+              "totalMs": 15.786814999999933
+            },
+            {
+              "iteration": 10,
+              "assessmentMs": 1.6166430000002947,
+              "htmlMs": 8.210057999999663,
+              "csvMs": 10.982601000000159,
+              "combinedExportMs": 19.19265899999982,
+              "totalMs": 20.809302000000116
+            },
+            {
+              "iteration": 11,
+              "assessmentMs": 1.5285960000001069,
+              "htmlMs": 9.528792000000067,
+              "csvMs": 5.851615000000038,
+              "combinedExportMs": 15.380407000000105,
+              "totalMs": 16.90900300000021
+            },
+            {
+              "iteration": 12,
+              "assessmentMs": 1.8822729999997136,
+              "htmlMs": 4.945978000000196,
+              "csvMs": 6.031662999999753,
+              "combinedExportMs": 10.977640999999949,
+              "totalMs": 12.859913999999662
+            },
+            {
+              "iteration": 13,
+              "assessmentMs": 2.9239159999997355,
+              "htmlMs": 9.664731000000302,
+              "csvMs": 7.170012999999926,
+              "combinedExportMs": 16.834744000000228,
+              "totalMs": 19.758659999999963
+            },
+            {
+              "iteration": 14,
+              "assessmentMs": 2.6941539999997985,
+              "htmlMs": 4.122464000000036,
+              "csvMs": 4.365635000000111,
+              "combinedExportMs": 8.488099000000147,
+              "totalMs": 11.182252999999946
+            },
+            {
+              "iteration": 15,
+              "assessmentMs": 4.057810000000245,
+              "htmlMs": 8.222810999999638,
+              "csvMs": 7.046900000000278,
+              "combinedExportMs": 15.269710999999916,
+              "totalMs": 19.32752100000016
+            },
+            {
+              "iteration": 16,
+              "assessmentMs": 3.087224000000333,
+              "htmlMs": 7.214966999999888,
+              "csvMs": 5.166815000000042,
+              "combinedExportMs": 12.38178199999993,
+              "totalMs": 15.469006000000263
+            },
+            {
+              "iteration": 17,
+              "assessmentMs": 2.012938000000304,
+              "htmlMs": 4.630228999999872,
+              "csvMs": 3.9794059999999263,
+              "combinedExportMs": 8.609634999999798,
+              "totalMs": 10.622573000000102
+            },
+            {
+              "iteration": 18,
+              "assessmentMs": 1.2834300000004077,
+              "htmlMs": 4.609928999999738,
+              "csvMs": 3.462775999999849,
+              "combinedExportMs": 8.072704999999587,
+              "totalMs": 9.356134999999995
+            },
+            {
+              "iteration": 19,
+              "assessmentMs": 1.1321160000002237,
+              "htmlMs": 5.748577999999725,
+              "csvMs": 8.879719000000023,
+              "combinedExportMs": 14.628296999999748,
+              "totalMs": 15.760412999999971
+            },
+            {
+              "iteration": 20,
+              "assessmentMs": 1.4360579999997753,
+              "htmlMs": 4.876328000000285,
+              "csvMs": 3.5922740000000886,
+              "combinedExportMs": 8.468602000000374,
+              "totalMs": 9.904660000000149
+            },
+            {
+              "iteration": 21,
+              "assessmentMs": 1.5752729999999247,
+              "htmlMs": 3.7572949999998855,
+              "csvMs": 3.4184580000001006,
+              "combinedExportMs": 7.175752999999986,
+              "totalMs": 8.75102599999991
+            },
+            {
+              "iteration": 22,
+              "assessmentMs": 1.3029850000002625,
+              "htmlMs": 4.10627999999997,
+              "csvMs": 4.204971999999998,
+              "combinedExportMs": 8.311251999999968,
+              "totalMs": 9.61423700000023
+            },
+            {
+              "iteration": 23,
+              "assessmentMs": 1.2864480000002914,
+              "htmlMs": 5.210876000000098,
+              "csvMs": 5.274543999999878,
+              "combinedExportMs": 10.485419999999976,
+              "totalMs": 11.771868000000268
+            },
+            {
+              "iteration": 24,
+              "assessmentMs": 1.3388150000000678,
+              "htmlMs": 6.301654999999755,
+              "csvMs": 6.352070999999796,
+              "combinedExportMs": 12.653725999999551,
+              "totalMs": 13.992540999999619
+            },
+            {
+              "iteration": 25,
+              "assessmentMs": 3.2263120000002345,
+              "htmlMs": 5.126800999999887,
+              "csvMs": 3.131536999999753,
+              "combinedExportMs": 8.25833799999964,
+              "totalMs": 11.484649999999874
+            }
+          ]
+        },
+        {
+          "assets": 1000,
+          "inputBytes": 657991,
+          "inputSha256": "eed7562014ccb63d86e789c2937ac88e4cb23db958e588c4c2601c98c613e870",
+          "outputBytes": {
+            "assessedJsonBytes": 1141455,
+            "htmlBytes": 1327893,
+            "csvBytes": 904444
+          },
+          "expectedSummary": {
+            "total": 1000,
+            "actionRequired": 100,
+            "verificationNeeded": 600,
+            "evidenceComplete": 100,
+            "providerConfirmed": 200
+          },
+          "actualSummary": {
+            "total": 1000,
+            "actionRequired": 100,
+            "verificationNeeded": 600,
+            "evidenceComplete": 100,
+            "providerConfirmed": 200
+          },
+          "stableOutputs": true,
+          "sourceUnchanged": true,
+          "outputHashes": {
+            "html": "b8db51fbc7fa0c852d6bedab0b39641a32165679e06ae3a01924534cfe4f3db9",
+            "csv": "14ff2fa5c9fccdb5f26d789b2972e2642c711f6dae4046b37f5715f96e9cc00b"
+          },
+          "timingsMs": {
+            "assessmentMs": {
+              "min": 11.656,
+              "median": 17.72,
+              "p95": 50.569,
+              "max": 55.196
+            },
+            "htmlMs": {
+              "min": 43.19,
+              "median": 61.772,
+              "p95": 155.882,
+              "max": 727.574
+            },
+            "csvMs": {
+              "min": 31.706,
+              "median": 44.021,
+              "p95": 95.726,
+              "max": 151.901
+            },
+            "combinedExportMs": {
+              "min": 80.627,
+              "median": 112.058,
+              "p95": 226.857,
+              "max": 815.463
+            },
+            "totalMs": {
+              "min": 92.282,
+              "median": 134.779,
+              "p95": 265.859,
+              "max": 849.213
+            }
+          },
+          "samples": [
+            {
+              "iteration": 1,
+              "assessmentMs": 50.56917599999997,
+              "htmlMs": 86.42630699999972,
+              "csvMs": 53.170294999999896,
+              "combinedExportMs": 139.59660199999962,
+              "totalMs": 190.1657779999996
+            },
+            {
+              "iteration": 2,
+              "assessmentMs": 34.061007999999674,
+              "htmlMs": 62.91048200000023,
+              "csvMs": 74.13547900000049,
+              "combinedExportMs": 137.04596100000072,
+              "totalMs": 171.1069690000004
+            },
+            {
+              "iteration": 3,
+              "assessmentMs": 33.310811999999714,
+              "htmlMs": 53.43173200000001,
+              "csvMs": 38.904412000000775,
+              "combinedExportMs": 92.33614400000079,
+              "totalMs": 125.6469560000005
+            },
+            {
+              "iteration": 4,
+              "assessmentMs": 16.446124999999483,
+              "htmlMs": 70.06404800000018,
+              "csvMs": 95.72573999999986,
+              "combinedExportMs": 165.78978800000004,
+              "totalMs": 182.23591299999953
+            },
+            {
+              "iteration": 5,
+              "assessmentMs": 13.50495299999966,
+              "htmlMs": 61.77204400000028,
+              "csvMs": 151.90103099999942,
+              "combinedExportMs": 213.6730749999997,
+              "totalMs": 227.17802799999936
+            },
+            {
+              "iteration": 6,
+              "assessmentMs": 39.00286099999994,
+              "htmlMs": 150.7072189999999,
+              "csvMs": 76.14934499999981,
+              "combinedExportMs": 226.8565639999997,
+              "totalMs": 265.85942499999965
+            },
+            {
+              "iteration": 7,
+              "assessmentMs": 15.25539099999969,
+              "htmlMs": 44.20118999999977,
+              "csvMs": 75.32200699999976,
+              "combinedExportMs": 119.52319699999953,
+              "totalMs": 134.77858799999922
+            },
+            {
+              "iteration": 8,
+              "assessmentMs": 55.19585899999947,
+              "htmlMs": 155.88195799999994,
+              "csvMs": 42.38231799999994,
+              "combinedExportMs": 198.26427599999988,
+              "totalMs": 253.46013499999935
+            },
+            {
+              "iteration": 9,
+              "assessmentMs": 11.753359999999702,
+              "htmlMs": 47.9362000000001,
+              "csvMs": 40.292293999999856,
+              "combinedExportMs": 88.22849399999996,
+              "totalMs": 99.98185399999966
+            },
+            {
+              "iteration": 10,
+              "assessmentMs": 20.4155980000005,
+              "htmlMs": 72.82585599999948,
+              "csvMs": 31.70586000000003,
+              "combinedExportMs": 104.5317159999995,
+              "totalMs": 124.947314
+            },
+            {
+              "iteration": 11,
+              "assessmentMs": 19.986691000000064,
+              "htmlMs": 59.24651500000073,
+              "csvMs": 42.44785199999933,
+              "combinedExportMs": 101.69436700000006,
+              "totalMs": 121.68105800000012
+            },
+            {
+              "iteration": 12,
+              "assessmentMs": 23.35849700000017,
+              "htmlMs": 61.754893999999695,
+              "csvMs": 32.71498599999995,
+              "combinedExportMs": 94.46987999999965,
+              "totalMs": 117.82837699999982
+            },
+            {
+              "iteration": 13,
+              "assessmentMs": 16.106602999999268,
+              "htmlMs": 56.53211900000042,
+              "csvMs": 67.88552499999969,
+              "combinedExportMs": 124.41764400000011,
+              "totalMs": 140.52424699999938
+            },
+            {
+              "iteration": 14,
+              "assessmentMs": 17.210962999999538,
+              "htmlMs": 73.42053699999997,
+              "csvMs": 46.417914000000565,
+              "combinedExportMs": 119.83845100000053,
+              "totalMs": 137.04941400000007
+            },
+            {
+              "iteration": 15,
+              "assessmentMs": 33.75021199999992,
+              "htmlMs": 727.5736910000005,
+              "csvMs": 87.88933399999951,
+              "combinedExportMs": 815.463025,
+              "totalMs": 849.2132369999999
+            },
+            {
+              "iteration": 16,
+              "assessmentMs": 17.388527000000067,
+              "htmlMs": 63.65303899999981,
+              "csvMs": 39.33685999999943,
+              "combinedExportMs": 102.98989899999924,
+              "totalMs": 120.37842599999931
+            },
+            {
+              "iteration": 17,
+              "assessmentMs": 17.757032000001345,
+              "htmlMs": 66.91068399999858,
+              "csvMs": 53.74763100000018,
+              "combinedExportMs": 120.65831499999877,
+              "totalMs": 138.4153470000001
+            },
+            {
+              "iteration": 18,
+              "assessmentMs": 16.07292900000175,
+              "htmlMs": 60.53070799999841,
+              "csvMs": 41.42331900000136,
+              "combinedExportMs": 101.95402699999977,
+              "totalMs": 118.02695600000152
+            },
+            {
+              "iteration": 19,
+              "assessmentMs": 17.71990299999925,
+              "htmlMs": 77.08921999999984,
+              "csvMs": 53.56797400000141,
+              "combinedExportMs": 130.65719400000125,
+              "totalMs": 148.3770970000005
+            },
+            {
+              "iteration": 20,
+              "assessmentMs": 13.595675000000483,
+              "htmlMs": 57.74979899999926,
+              "csvMs": 40.67575500000021,
+              "combinedExportMs": 98.42555399999947,
+              "totalMs": 112.02122899999995
+            },
+            {
+              "iteration": 21,
+              "assessmentMs": 23.885425000000396,
+              "htmlMs": 79.5993440000002,
+              "csvMs": 32.458958999999595,
+              "combinedExportMs": 112.0583029999998,
+              "totalMs": 135.9437280000002
+            },
+            {
+              "iteration": 22,
+              "assessmentMs": 11.655864000000292,
+              "htmlMs": 43.18974900000103,
+              "csvMs": 37.43677699999898,
+              "combinedExportMs": 80.62652600000001,
+              "totalMs": 92.2823900000003
+            },
+            {
+              "iteration": 23,
+              "assessmentMs": 18.70026499999949,
+              "htmlMs": 47.04425000000083,
+              "csvMs": 44.02069499999925,
+              "combinedExportMs": 91.06494500000008,
+              "totalMs": 109.76520999999957
+            },
+            {
+              "iteration": 24,
+              "assessmentMs": 15.813077999999223,
+              "htmlMs": 51.77889200000027,
+              "csvMs": 51.38110600000073,
+              "combinedExportMs": 103.159998000001,
+              "totalMs": 118.97307600000022
+            },
+            {
+              "iteration": 25,
+              "assessmentMs": 12.141317999999956,
+              "htmlMs": 51.2063049999997,
+              "csvMs": 36.54105100000015,
+              "combinedExportMs": 87.74735599999985,
+              "totalMs": 99.88867399999981
+            }
+          ]
+        }
+      ]
+    },
+    "H6": {
+      "curatedCases": 15,
+      "policyDisagreements": 12,
+      "baselineClosesUnresolved": [
+        "fixed-cli",
+        "fixed-package",
+        "no-restart",
+        "no-check",
+        "no-reviewer",
+        "stale-evidence",
+        "prerelease",
+        "vendor-modern"
+      ],
+      "baselineUpdatesUnresolvedVendor": [
+        "vendor-unknown",
+        "vendor-new-observation"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "hypothesis": "H1",
+      "name": "self-managed transitions",
+      "passed": true,
+      "detail": {
+        "expected": [
+          "verification-needed",
+          "action-required",
+          "verification-needed",
+          "verification-needed",
+          "evidence-complete"
+        ],
+        "actual": [
+          "verification-needed",
+          "action-required",
+          "verification-needed",
+          "verification-needed",
+          "evidence-complete"
+        ]
+      }
+    },
+    {
+      "hypothesis": "H1",
+      "name": "managed-hosting transitions",
+      "passed": true,
+      "detail": {
+        "expected": [
+          "verification-needed",
+          "provider-confirmed",
+          "verification-needed",
+          "provider-confirmed"
+        ],
+        "actual": [
+          "verification-needed",
+          "provider-confirmed",
+          "verification-needed",
+          "provider-confirmed"
+        ]
+      }
+    },
+    {
+      "hypothesis": "H1",
+      "name": "handover JSON round-trip preserves raw records and outcomes",
+      "passed": true,
+      "detail": {
+        "summary": {
+          "total": 2,
+          "actionRequired": 0,
+          "verificationNeeded": 0,
+          "evidenceComplete": 1,
+          "providerConfirmed": 1
+        }
+      }
+    },
+    {
+      "hypothesis": "H2",
+      "name": "selected customer has exactly its two environments",
+      "passed": true,
+      "detail": {
+        "htmlCards": 2,
+        "csvDataRows": 2,
+        "exportedIds": [
+          "fictional-upstream",
+          "fictional-vendor"
+        ]
+      }
+    },
+    {
+      "hypothesis": "H2",
+      "name": "no other-customer markers in either complete export",
+      "passed": true,
+      "detail": {
+        "markersChecked": 18,
+        "leakedMarkers": []
+      }
+    },
+    {
+      "hypothesis": "H2",
+      "name": "fictional label and source inventory survive handover",
+      "passed": true,
+      "detail": {
+        "sourceSha256": "38edce20a4c1d49f8106e7152c6c372c2ade6b356f693dc1b919f6f753fb2248",
+        "sourceUnchanged": true
+      }
+    },
+    {
+      "hypothesis": "H3",
+      "name": "unchanged evidence ages out while the catalog remains current",
+      "passed": true,
+      "detail": {
+        "fresh": {
+          "total": 2,
+          "actionRequired": 0,
+          "verificationNeeded": 0,
+          "evidenceComplete": 1,
+          "providerConfirmed": 1
+        },
+        "stale": {
+          "total": 2,
+          "actionRequired": 0,
+          "verificationNeeded": 2,
+          "evidenceComplete": 0,
+          "providerConfirmed": 0
+        }
+      }
+    },
+    {
+      "hypothesis": "H3",
+      "name": "catalog expiry reopens both outcomes despite fresh unchanged evidence",
+      "passed": true,
+      "detail": {
+        "before": {
+          "total": 2,
+          "actionRequired": 0,
+          "verificationNeeded": 0,
+          "evidenceComplete": 1,
+          "providerConfirmed": 1
+        },
+        "after": {
+          "total": 2,
+          "actionRequired": 0,
+          "verificationNeeded": 2,
+          "evidenceComplete": 0,
+          "providerConfirmed": 0
+        }
+      }
+    },
+    {
+      "hypothesis": "H4",
+      "name": "accepted API and CLI outcome preserves data",
+      "passed": true,
+      "detail": {
+        "id": "accepted",
+        "assets": 1000,
+        "inputBytes": 657991,
+        "expected": "accept",
+        "apiAccepted": true,
+        "apiError": "",
+        "cliExitCode": 0,
+        "cliError": "",
+        "cliStderr": "Wrote HTML report: <temporary>/accepted.html",
+        "cliStdoutBytes": 0,
+        "outputExists": true,
+        "outputBytes": 1682489,
+        "inputSha256": "eed7562014ccb63d86e789c2937ac88e4cb23db958e588c4c2601c98c613e870",
+        "memoryUnchanged": true,
+        "fileUnchanged": true,
+        "previousReportUnchanged": true
+      }
+    },
+    {
+      "hypothesis": "H4",
+      "name": "too-many API and CLI outcome preserves data",
+      "passed": true,
+      "detail": {
+        "id": "too-many",
+        "assets": 1001,
+        "inputBytes": 658567,
+        "expected": "reject",
+        "apiAccepted": false,
+        "apiError": "Fleet exceeds the 1,000 asset limit.",
+        "cliExitCode": 1,
+        "cliError": "",
+        "cliStderr": "PHP Response Desk: Invalid fleet: Fleet exceeds the 1,000 asset limit.",
+        "cliStdoutBytes": 0,
+        "outputExists": false,
+        "outputBytes": 0,
+        "inputSha256": "42903731c15395dc94ea1577e727ab0a4043aed4d5fbc95f269436e481e71762",
+        "memoryUnchanged": true,
+        "fileUnchanged": true,
+        "previousReportUnchanged": true
+      }
+    },
+    {
+      "hypothesis": "H4",
+      "name": "too-large API and CLI outcome preserves data",
+      "passed": true,
+      "detail": {
+        "id": "too-large",
+        "assets": 1000,
+        "inputBytes": 6554791,
+        "expected": "reject",
+        "apiAccepted": false,
+        "apiError": "Fleet exceeds the 5 MiB import limit.",
+        "cliExitCode": 1,
+        "cliError": "",
+        "cliStderr": "PHP Response Desk: Input exceeds the 5 MiB import limit.",
+        "cliStdoutBytes": 0,
+        "outputExists": false,
+        "outputBytes": 0,
+        "inputSha256": "20e4aee2ef113cfb58fd953c1d5be15e9ed51162376b376feb530ee80df26788",
+        "memoryUnchanged": true,
+        "fileUnchanged": true,
+        "previousReportUnchanged": true
+      }
+    },
+    {
+      "hypothesis": "H5",
+      "name": "10 environments meet declared engine/export budgets",
+      "passed": true,
+      "detail": {
+        "assets": 10,
+        "inputBytes": 6659,
+        "assessmentP95Ms": 4.167,
+        "combinedExportP95Ms": 8.193,
+        "stableOutputs": true,
+        "sourceUnchanged": true,
+        "expectedSummary": {
+          "total": 10,
+          "actionRequired": 1,
+          "verificationNeeded": 6,
+          "evidenceComplete": 1,
+          "providerConfirmed": 2
+        },
+        "actualSummary": {
+          "total": 10,
+          "actionRequired": 1,
+          "verificationNeeded": 6,
+          "evidenceComplete": 1,
+          "providerConfirmed": 2
+        }
+      }
+    },
+    {
+      "hypothesis": "H5",
+      "name": "100 environments meet declared engine/export budgets",
+      "passed": true,
+      "detail": {
+        "assets": 100,
+        "inputBytes": 65790,
+        "assessmentP95Ms": 6.387,
+        "combinedExportP95Ms": 24.777,
+        "stableOutputs": true,
+        "sourceUnchanged": true,
+        "expectedSummary": {
+          "total": 100,
+          "actionRequired": 10,
+          "verificationNeeded": 60,
+          "evidenceComplete": 10,
+          "providerConfirmed": 20
+        },
+        "actualSummary": {
+          "total": 100,
+          "actionRequired": 10,
+          "verificationNeeded": 60,
+          "evidenceComplete": 10,
+          "providerConfirmed": 20
+        }
+      }
+    },
+    {
+      "hypothesis": "H5",
+      "name": "1000 environments meet declared engine/export budgets",
+      "passed": true,
+      "detail": {
+        "assets": 1000,
+        "inputBytes": 657991,
+        "assessmentP95Ms": 50.569,
+        "combinedExportP95Ms": 226.857,
+        "stableOutputs": true,
+        "sourceUnchanged": true,
+        "expectedSummary": {
+          "total": 1000,
+          "actionRequired": 100,
+          "verificationNeeded": 600,
+          "evidenceComplete": 100,
+          "providerConfirmed": 200
+        },
+        "actualSummary": {
+          "total": 1000,
+          "actionRequired": 100,
+          "verificationNeeded": 600,
+          "evidenceComplete": 100,
+          "providerConfirmed": 200
+        }
+      }
+    },
+    {
+      "hypothesis": "H6",
+      "name": "curated examples expose both specified baseline limitations",
+      "passed": true,
+      "detail": {
+        "curatedCases": 15,
+        "policyDisagreements": 12,
+        "baselineClosesUnresolved": [
+          "fixed-cli",
+          "fixed-package",
+          "no-restart",
+          "no-check",
+          "no-reviewer",
+          "stale-evidence",
+          "prerelease",
+          "vendor-modern"
+        ],
+        "baselineUpdatesUnresolvedVendor": [
+          "vendor-unknown",
+          "vendor-new-observation"
+        ]
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "workflow.json",
+      "bytes": 17692,
+      "sha256": "5e430d053240ad984ed71a1aa1e6e0e5b5a31cdd6ae60386bc132995351c2d26"
+    },
+    {
+      "file": "final-inventory.json",
+      "bytes": 3615,
+      "sha256": "48bbd1b741c6df3e74957910a2042f8ead7a0c2505773d8423bac8abd740747c"
+    },
+    {
+      "file": "customer-report.html",
+      "bytes": 7881,
+      "sha256": "417e064b0173b5957a5e1ef5fb9acd3e90f0bd6e2cb853dc84a761c26be34044"
+    },
+    {
+      "file": "customer-report.csv",
+      "bytes": 2366,
+      "sha256": "2029e704da9573f82d0a8fd6a55c736f3a1e3640291cf3ca4ca5940418fad546"
+    },
+    {
+      "file": "scale-1000.fleet.json",
+      "bytes": 657992,
+      "sha256": "ae6ab2484527eb594439e2120aaa68e4f9839784c24ab6005e62fca85e6e9584"
+    },
+    {
+      "file": "baseline-comparison.json",
+      "bytes": 21371,
+      "sha256": "cb385846a0e773c4bdddb3bb996471bf7d9f377a1b6be6c24c9a42b1e7889acf"
+    }
+  ],
+  "limitations": [
+    "No human participants or live deployments.",
+    "Scripted engine/export workflow, not browser usability measurement.",
+    "Shared-machine timings, not a production service-level guarantee.",
+    "Version-only comparison is constructed and intentionally naive.",
+    "Operator and provider statements are not independently authenticated.",
+    "The saved report generation time is simulated for reproducibility."
+  ],
+  "finishedAt": "2026-10-22T03:58:42.782Z",
+  "outcome": {
+    "passedChecks": 15,
+    "failedChecks": 0,
+    "passedHypotheses": [
+      "H1",
+      "H2",
+      "H3",
+      "H4",
+      "H5",
+      "H6"
+    ],
+    "passed": true
+  }
+}

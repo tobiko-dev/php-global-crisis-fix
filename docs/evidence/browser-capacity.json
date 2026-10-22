@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "experiment": "real-browser-fleet-capacity-v1",
+  "generatedAt": "2026-10-22T03:55:20.298Z",
+  "protocolDate": "2026-10-21 America/Chicago",
+  "assessmentDate": "2026-10-22T14:00:00.000Z",
+  "fictionalData": true,
+  "criteria": {
+    "trialsPerSize": 3,
+    "importMilliseconds": {
+      "10": 2000,
+      "100": 2000,
+      "1000": 5000
+    },
+    "filterMilliseconds": 1000
+  },
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "architecture": "x64",
+    "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "logicalCpus": 9,
+    "memoryGiB": 10,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "chromium": "131.0.6778.0"
+  },
+  "samples": [
+    {
+      "assets": 10,
+      "trial": 1,
+      "inputBytes": 6297,
+      "importMs": 36,
+      "filterMs": 33,
+      "importRows": 10,
+      "filterRows": 1,
+      "storedRows": 10,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 10,
+      "trial": 2,
+      "inputBytes": 6297,
+      "importMs": 34,
+      "filterMs": 30,
+      "importRows": 10,
+      "filterRows": 1,
+      "storedRows": 10,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 10,
+      "trial": 3,
+      "inputBytes": 6297,
+      "importMs": 42,
+      "filterMs": 18,
+      "importRows": 10,
+      "filterRows": 1,
+      "storedRows": 10,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 100,
+      "trial": 1,
+      "inputBytes": 61762,
+      "importMs": 78,
+      "filterMs": 23,
+      "importRows": 100,
+      "filterRows": 10,
+      "storedRows": 100,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 100,
+      "trial": 2,
+      "inputBytes": 61762,
+      "importMs": 169,
+      "filterMs": 26,
+      "importRows": 100,
+      "filterRows": 10,
+      "storedRows": 100,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 100,
+      "trial": 3,
+      "inputBytes": 61762,
+      "importMs": 105,
+      "filterMs": 20,
+      "importRows": 100,
+      "filterRows": 10,
+      "storedRows": 100,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 1000,
+      "trial": 1,
+      "inputBytes": 620381,
+      "importMs": 1479,
+      "filterMs": 114,
+      "importRows": 1000,
+      "filterRows": 100,
+      "storedRows": 1000,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 1000,
+      "trial": 2,
+      "inputBytes": 620381,
+      "importMs": 751,
+      "filterMs": 72,
+      "importRows": 1000,
+      "filterRows": 100,
+      "storedRows": 1000,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    },
+    {
+      "assets": 1000,
+      "trial": 3,
+      "inputBytes": 620381,
+      "importMs": 579,
+      "filterMs": 81,
+      "importRows": 1000,
+      "filterRows": 100,
+      "storedRows": 1000,
+      "browserErrors": [],
+      "externalRequests": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

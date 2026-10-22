@@ -20,6 +20,26 @@ function request(path, options = {}) {
   });
 }
 
+test('serves the dashboard and shared modules with appropriate content types', async () => {
+  for (const [path, type, content] of [
+    ['/', 'text/html', 'PHP Response Desk'],
+    ['/styles.css', 'text/css', '.sidebar'],
+    ['/app.mjs', 'text/javascript', 'normalizeFleet'],
+    ['/src/core.mjs', 'text/javascript', 'assessFleet'],
+    ['/src/catalog.mjs', 'text/javascript', 'CVE-2026-109618'],
+  ]) {
+    const result = await request(path);
+    assert.equal(result.status, 200, path);
+    assert.ok(result.headers['content-type'].startsWith(type), path);
+    assert.ok(result.body.includes(content), path);
+    assert.equal(result.headers['cache-control'], 'no-store');
+  }
+  const head = await request('/', { method: 'HEAD' });
+  assert.equal(head.status, 200);
+  assert.equal(head.body, '');
+  assert.ok(Number(head.headers['content-length']) > 0);
+});
+
 test('does not expose repository files or escaped paths', async () => {
   for (const path of ['/.git/config', '/README.md', '/package.json', '/collectors/collect.py', '/reports/client.html', '/private/inventory.json', '/%2e%2e/package.json', '/src/../package.json', '/src/%2e%2e/%2e%2e/.env']) {
     const result = await request(path);

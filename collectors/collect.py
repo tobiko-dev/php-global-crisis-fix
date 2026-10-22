@@ -9,8 +9,79 @@ import re
 import shutil
 import subprocess
 import sys
+import threading
+import time
 
 VERSION = "0.1.0"
+MAX_VERSION_OUTPUT_BYTES = 65536
+VERSION_TIMEOUT_SECONDS = 5
+
+
+def _stop_process(process):
+    """Terminate and reap the direct child without an unbounded cleanup wait."""
+    try:
+        process.kill()
+    except OSError:
+        pass
+    try:
+        process.wait(timeout=1)
+    except subprocess.TimeoutExpired:
+        pass
+
+
+def _capture_version_output(resolved):
+    """Bound stdout while retaining a timeout on platforms without pipe selectors."""
+    try:
+        process = subprocess.Popen(
+            [resolved, "-n", "-v"], stdin=subprocess.DEVNULL,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+    except OSError:
+        return None, "PHP version could not be read. No runtime verification was performed."
+
+    result = {"data": None}
+    finished = threading.Event()
+    deadline = time.monotonic() + VERSION_TIMEOUT_SECONDS
+
+    def read_output():
+        try:
+            # The extra byte detects overflow without buffering the entire output.
+            result["data"] = process.stdout.read(MAX_VERSION_OUTPUT_BYTES + 1)
+        except (OSError, ValueError):
+            pass
+        finally:
+            try:
+                process.stdout.close()
+            finally:
+                finished.set()
+
+    # A descendant retaining stdout must not hold the collector open indefinitely.
+    reader = threading.Thread(target=read_output, daemon=True)
+    try:
+        reader.start()
+    except RuntimeError:
+        _stop_process(process)
+        process.stdout.close()
+        return None, "PHP version could not be read. No runtime verification was performed."
+
+    if not finished.wait(max(0, deadline - time.monotonic())):
+        _stop_process(process)
+        return None, "PHP version command timed out. No runtime verification was performed."
+    output = result["data"]
+    if output is None:
+        _stop_process(process)
+        return None, "PHP version could not be read. No runtime verification was performed."
+    if len(output) > MAX_VERSION_OUTPUT_BYTES:
+        _stop_process(process)
+        return None, "PHP version output exceeded the 64 KiB limit. No runtime verification was performed."
+    try:
+        returncode = process.wait(timeout=max(0, deadline - time.monotonic()))
+    except subprocess.TimeoutExpired:
+        _stop_process(process)
+        return None, "PHP version command timed out. No runtime verification was performed."
+    if returncode != 0:
+        return None, "PHP version command failed. No runtime verification was performed."
+    return output, ""
 
 
 def collect_version(executable="php"):
@@ -18,18 +89,14 @@ def collect_version(executable="php"):
     resolved = shutil.which(executable)
     if not resolved:
         return "", "PHP executable was not found. Record the web runtime through your host or server operator."
+    output, error = _capture_version_output(resolved)
+    if output is None:
+        return "", error
     try:
-        result = subprocess.run(
-            [resolved, "-n", "-v"], capture_output=True, text=True,
-            timeout=5, check=False,
-        )
-    except subprocess.TimeoutExpired:
-        return "", "PHP version command timed out. No runtime verification was performed."
-    except (OSError, UnicodeError):
+        text = output.decode("utf-8")
+    except UnicodeError:
         return "", "PHP version could not be read. No runtime verification was performed."
-    if result.returncode != 0:
-        return "", "PHP version command failed. No runtime verification was performed."
-    match = re.search(r"^PHP\s+([0-9]+\.[0-9]+\.[0-9]+[^\s]*)", result.stdout[:65536], re.MULTILINE)
+    match = re.search(r"^PHP\s+([0-9]+\.[0-9]+\.[0-9]+[^\s]*)", text, re.MULTILINE)
     if not match:
         return "", "No recognizable PHP version was returned. Confirm the effective web runtime separately."
     version = match.group(1)

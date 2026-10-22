@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "organization": "Northstar Web Studio — demo",
+  "demo": true,
+  "assets": [
+    {
+      "id": "demo-001",
+      "client": "Fern & Field",
+      "name": "Storefront",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "8.4.26",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T01:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional example: all relevant workers restarted; active web runtime recorded and application flows checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "2026-10-22T01:20:00.000Z",
+      "smokeTestAt": "2026-10-22T01:40:00.000Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-002",
+      "client": "Fern & Field",
+      "name": "Booking portal",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "8.3.36",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T01:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional example: all relevant workers restarted; active web runtime recorded and application flows checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "2026-10-22T01:20:00.000Z",
+      "smokeTestAt": "2026-10-22T01:40:00.000Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-003",
+      "client": "Harbor Goods",
+      "name": "Customer website",
+      "environment": "production",
+      "provider": "Managed hosting",
+      "owner": "Operations team",
+      "phpVersion": "8.2.29-vendor1",
+      "distribution": "vendor",
+      "observation": "unknown",
+      "observedAt": "",
+      "evidenceUrl": "",
+      "evidenceNote": "",
+      "reviewer": "",
+      "restartConfirmedAt": "",
+      "smokeTestAt": "",
+      "providerConfirmation": {
+        "coversBothCves": true,
+        "confirmedAt": "2026-10-22T01:50:00.000Z",
+        "reference": "DEMO-482: provider confirmed both CVEs fixed for this account and deployment.",
+        "reviewer": "Demo operator"
+      }
+    },
+    {
+      "id": "demo-004",
+      "client": "Harbor Goods",
+      "name": "API server",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "8.4.27",
+      "distribution": "upstream",
+      "observation": "cli",
+      "observedAt": "2026-10-22T01:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional CLI version only; active web runtime has not been checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "",
+      "smokeTestAt": "",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-005",
+      "client": "Atlas Workshop",
+      "name": "Legacy catalog",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "7.4.33",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T01:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional example: all relevant workers restarted; active web runtime recorded and application flows checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "2026-10-22T01:20:00.000Z",
+      "smokeTestAt": "2026-10-22T01:40:00.000Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-006",
+      "client": "Atlas Workshop",
+      "name": "Member portal",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "8.2.29-1+deb12u1",
+      "distribution": "vendor",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T01:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional vendor package; backport confirmation still needed.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "2026-10-22T01:20:00.000Z",
+      "smokeTestAt": "2026-10-22T01:40:00.000Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-007",
+      "client": "Juniper Studio",
+      "name": "Website",
+      "environment": "production",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "8.4.27",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-18T02:00:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional example: all relevant workers restarted; active web runtime recorded and application flows checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "2026-10-18T01:00:00.000Z",
+      "smokeTestAt": "2026-10-18T03:00:00.000Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    },
+    {
+      "id": "demo-008",
+      "client": "Juniper Studio",
+      "name": "Preview environment",
+      "environment": "staging",
+      "provider": "Self-managed VPS",
+      "owner": "Operations team",
+      "phpVersion": "8.5.12",
+      "distribution": "upstream",
+      "observation": "web-runtime",
+      "observedAt": "2026-10-22T01:30:00.000Z",
+      "evidenceUrl": "",
+      "evidenceNote": "Fictional example: all relevant workers restarted; active web runtime recorded and application flows checked.",
+      "reviewer": "Demo operator",
+      "restartConfirmedAt": "2026-10-22T01:20:00.000Z",
+      "smokeTestAt": "2026-10-22T01:40:00.000Z",
+      "providerConfirmation": {
+        "coversBothCves": false,
+        "confirmedAt": "",
+        "reference": "",
+        "reviewer": ""
+      }
+    }
+  ]
+}

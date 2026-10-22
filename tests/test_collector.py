@@ -1,4 +1,5 @@
 import importlib.util
+import io
 import json
 import os
 from pathlib import Path
@@ -14,6 +15,19 @@ collector = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(collector)
 
 
+class FakeVersionProcess:
+    def __init__(self, output, returncode=0):
+        self.stdout = io.BytesIO(output)
+        self.returncode = returncode
+        self.killed = False
+
+    def wait(self, timeout=None):
+        return self.returncode
+
+    def kill(self):
+        self.killed = True
+
+
 class CollectorTests(unittest.TestCase):
     def test_missing_php_is_unknown_and_never_verified(self):
         with patch.object(collector.shutil, "which", return_value=None):
@@ -22,28 +36,56 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("not found", note)
 
     def test_version_read_has_no_shell_and_disables_configuration(self):
-        outcome = subprocess.CompletedProcess([], 0, "PHP 8.4.27 (cli) (built: Oct 21 2026)\n", "")
+        outcome = FakeVersionProcess(b"PHP 8.4.27 (cli) (built: Oct 21 2026)\n")
         with patch.object(collector.shutil, "which", return_value="/usr/bin/php"):
-            with patch.object(collector.subprocess, "run", return_value=outcome) as command:
+            with patch.object(collector.subprocess, "Popen", return_value=outcome) as command:
                 version, note = collector.collect_version("php")
         self.assertEqual(version, "8.4.27")
         self.assertEqual(command.call_args.args[0], ["/usr/bin/php", "-n", "-v"])
         self.assertNotIn("shell", command.call_args.kwargs)
+        self.assertEqual(command.call_args.kwargs["stdout"], subprocess.PIPE)
+        self.assertEqual(command.call_args.kwargs["stderr"], subprocess.DEVNULL)
         self.assertIn("does not identify", note)
 
     def test_vendor_suffix_is_preserved_for_review(self):
-        outcome = subprocess.CompletedProcess([], 0, "PHP 8.3.6-custom (cli)\n", "")
+        outcome = FakeVersionProcess(b"PHP 8.3.6-custom (cli)\n")
         with patch.object(collector.shutil, "which", return_value="/usr/bin/php"):
-            with patch.object(collector.subprocess, "run", return_value=outcome):
+            with patch.object(collector.subprocess, "Popen", return_value=outcome):
                 self.assertEqual(collector.collect_version()[0], "8.3.6-custom")
 
     def test_timeout_and_nonzero_do_not_return_partial_positive_version(self):
+        real_popen = subprocess.Popen
+        program = "import sys, time; print('PHP 8.4.27', flush=True); time.sleep(3)"
+        def slow_process(command, **kwargs):
+            return real_popen([sys.executable, "-c", program], **kwargs)
         with patch.object(collector.shutil, "which", return_value="/usr/bin/php"):
-            with patch.object(collector.subprocess, "run", side_effect=subprocess.TimeoutExpired("php", 5)):
+            with patch.object(collector, "VERSION_TIMEOUT_SECONDS", 0.2):
+                with patch.object(collector.subprocess, "Popen", side_effect=slow_process):
+                    version, note = collector.collect_version()
+                    self.assertEqual(version, "")
+                    self.assertIn("timed out", note)
+            outcome = FakeVersionProcess(b"PHP 8.4.27", returncode=1)
+            with patch.object(collector.subprocess, "Popen", return_value=outcome):
                 self.assertEqual(collector.collect_version()[0], "")
-            outcome = subprocess.CompletedProcess([], 1, "PHP 8.4.27", "failure")
-            with patch.object(collector.subprocess, "run", return_value=outcome):
-                self.assertEqual(collector.collect_version()[0], "")
+
+    def test_oversized_stdout_rejects_valid_prefix_and_stops_child(self):
+        real_popen = subprocess.Popen
+        children = []
+        program = (
+            "import sys, time; "
+            "sys.stdout.buffer.write(b'PHP 8.4.27 (cli)\\n' + b'x' * 262144); "
+            "sys.stdout.buffer.flush(); time.sleep(3)"
+        )
+        def noisy_process(command, **kwargs):
+            child = real_popen([sys.executable, "-c", program], **kwargs)
+            children.append(child)
+            return child
+        with patch.object(collector.shutil, "which", return_value="/usr/bin/php"):
+            with patch.object(collector.subprocess, "Popen", side_effect=noisy_process):
+                version, note = collector.collect_version()
+        self.assertEqual(version, "")
+        self.assertIn("64 KiB limit", note)
+        self.assertIsNotNone(children[0].poll())
 
     def test_output_is_private_and_existing_file_is_preserved(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -1,6 +1,6 @@
 # Build record
 
-Dates below use America/Chicago. Commit timestamps are available in GitHub.
+Initial planning dates use America/Chicago; integration dates are explicitly marked UTC. Commit timestamps are available in GitHub.
 
 ## 2026-10-21 — Problem and product boundary
 
@@ -21,6 +21,18 @@ Dates below use America/Chicago. Commit timestamps are available in GitHub.
 - Added tests covering protected files, traversal, unsupported HTTP methods, malicious Host values, missing PHP, subprocess failures, and output-file preservation.
 - Added a GitHub Actions validation matrix for Node.js 20, 22 and 24, plus the Python collector checks.
 - Validation results and complete deliverable details will be appended after integration.
+
+## 2026-10-22 UTC — Assessment, workflow, and independent review
+
+- Implemented the shared assessment engine, source-linked advisory catalog, CLI, and eight fictional example environments.
+- Built the browser fleet dashboard, evidence editor, customer and status filters, local persistence, validated replace/merge imports, CSV export, and customer-scoped HTML reports.
+- Wrote the business hypothesis and proposed pilot, operator runbook, source register, architecture, design decisions, contribution guidance, and security scope.
+- Corrected an export trust issue found during integration review: imported `generatedAt` can no longer supply the assessment clock. Reports and CSV recompute using the current clock unless a trusted caller explicitly supplies a test time.
+- Corrected provider-confirmation chronology for vendor-suffixed versions. A newer lower-version web observation requires renewed backport clarification consistently, without declaring vendor builds vulnerable from their banner.
+- Replaced the collector's unbounded output capture with a 64 KiB limit plus one overflow-detection byte, discarded stderr, and a bounded subprocess deadline. Oversized output remains unknown even if it begins with a plausible version.
+- Added successful app/module serving checks alongside the local server isolation checks.
+- Integrated automated result: **46 JavaScript checks and 7 collector checks passed**. Generated the demo HTML and verified that collector output imports into the CLI while retaining uncertainty and the unresolved-work exit code.
+- Browser workflow validation and screenshot capture are recorded in [VALIDATION.md](docs/VALIDATION.md).
 
 ## Commercial status
 

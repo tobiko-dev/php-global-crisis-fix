@@ -34,6 +34,26 @@ Initial planning dates use America/Chicago; integration dates are explicitly mar
 - Integrated automated result: **46 JavaScript checks and 7 collector checks passed**. Generated the demo HTML and verified that collector output imports into the CLI while retaining uncertainty and the unresolved-work exit code.
 - Browser workflow validation and screenshot capture are recorded in [VALIDATION.md](docs/VALIDATION.md).
 
+## 2026-10-22 UTC — Browser validation and handover
+
+- Exercised the working app in Chromium: **all 11 workflow groups passed**, with zero JavaScript/CSP console errors and zero external requests during the test flow.
+- Verified desktop and 390-pixel responsive layouts, customer-scoped HTML downloads, filtered CSV, complete JSON export, editing, persistence, cancellation, imports, deletion, and recovery.
+- Preserved original precise or invalid timestamp strings when unrelated evidence fields are edited. Native datetime controls must not silently alter the evidence record.
+- Guarded against a queued import-dialog close event clearing a newer preview.
+- Corrected the ID input pattern for modern HTML regex parsing.
+- Contained the visually hidden table header inside its scroll container, fixing an actual mobile document overflow found in screenshot review.
+- Saved visually reviewed desktop and mobile screenshots, added a reproducible optional browser smoke script, and completed the README and changelog.
+- Confirmed the first full GitHub Actions checkpoint passed all three Node.js 20/22/24 jobs, including collector checks and the demo report: [run 39712971437](https://github.com/tobiko-dev/php-global-crisis-fix/actions/runs/39712971437).
+- Recorded the exact test environment, deterministic browser clock, and remaining compatibility/production limits in [VALIDATION.md](docs/VALIDATION.md).
+
+## Published milestones
+
+- [`96a07f4`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/96a07f41fe5781b6477091c44f91b264137ee460): initial business problem and delivery plan.
+- [`3ed9218`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/3ed9218c3f0b3e92715f76730491da8a652c9de5): local server, collector, shared contract, and foundation tests.
+- [`212829b`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/212829bbf7903a155185e05bc7200e29f652783b): assessment engine, report CLI, business/operational docs, and independent-review corrections.
+- [`b6a084c`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/b6a084c708b1d66bcc2a51798c10b5ec9d2a2ce6): dashboard, browser smoke workflow, and continuous-validation matrix.
+- Final handover commit: completed README, screenshots, validation evidence, and browser-review corrections. Its SHA is available in the repository history.
+
 ## Commercial status
 
 No customer interviews, outreach, paid pilots, or production access have been performed. Pricing and willingness to pay remain hypotheses. All demonstration data is fictional.

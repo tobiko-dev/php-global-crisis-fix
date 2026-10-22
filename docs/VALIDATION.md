@@ -28,11 +28,44 @@ The execution environment restricts localhost binding and child-process pipes. T
 
 ## Browser workflow validation
 
-Real-browser interaction and responsive checks are in progress. The validation result and reproducible smoke command will be recorded here before the build is handed over.
+**All 11 browser verification groups passed** using Playwright **1.62.1** and Chromium **131.0.6778.0** on Linux. The run observed **zero JavaScript/CSP console errors and zero external requests** during the tested workflow.
+
+The checks covered:
+
+1. Eight-site demo, all four outcomes, persistence, and desktop bounds.
+2. Search, customer filters, isolated HTML reports, filtered CSV, and complete raw JSON export.
+3. Status filters, filter toggling, and evidence queue navigation.
+4. Cancel behavior, focus restoration, saved edits, and untouched timestamp precision.
+5. Clear confirmation, add, completed-evidence outcome, reload persistence, and delete/cancel.
+6. Import preview/cancel, literal untrusted text, unsafe links, invalid timestamp preservation, and retained data after malformed, oversized, or duplicate-ID input.
+7. Merge/replace semantics and separation of demo records from real inventory.
+8. Demo restoration, source dialog, workspace naming, and desktop capture.
+9. A 390-pixel viewport, document/editor bounds, navigation, Escape cancellation, and mobile reset/demo controls.
+10. Corrupt stored-data recovery without automatic overwrite.
+11. Browser error and external-request assertions.
+
+[Desktop screenshot](assets/dashboard.png) · [Mobile screenshot](assets/mobile.png)
+
+The screenshots use fictional data. The smoke script fixes its browser clock inside the checked-in catalog's review window, so positive test outcomes remain reproducible; the production app uses the actual clock. Separate core tests exercise expired and future catalogs. A viewport check is not a real-device or accessibility certification. Firefox, Safari, and other browser versions were not exercised here.
+
+### Reproduce the optional browser check
+
+Playwright is a separate development tool, not an application dependency. On Linux, one way to install it outside the repository is:
+
+```bash
+npm install --prefix /tmp/php-response-browser-check playwright@1.62.1
+/tmp/php-response-browser-check/node_modules/.bin/playwright install chromium
+PLAYWRIGHT_MODULE_PATH=/tmp/php-response-browser-check/node_modules/playwright \
+  node scripts/smoke-ui.mjs
+```
+
+Set `CHROMIUM_EXECUTABLE_PATH` to use a separately installed Chromium. Set `UI_SCREENSHOT_DIR` to retain screenshots in a chosen directory. The local validation used a separately installed Chromium binary because the environment's normal browser download failed; that binary and its installer are not included in the repository.
 
 ## Continuous integration
 
-`.github/workflows/ci.yml` runs the JavaScript checks on Node.js **20, 22, and 24**, collector checks with Python **3.11**, and the demo report command. The Actions result for the published commit is the authority for whether those hosted runs passed; configuration alone is not a passing result.
+`.github/workflows/ci.yml` runs the JavaScript checks on Node.js **20, 22, and 24**, collector checks with Python **3.11**, and the demo report command.
+
+The first integration checkpoint, [`b6a084c`](https://github.com/tobiko-dev/php-global-crisis-fix/commit/b6a084c708b1d66bcc2a51798c10b5ec9d2a2ce6), passed **all three hosted matrix jobs** in [Actions run 39712971437](https://github.com/tobiko-dev/php-global-crisis-fix/actions/runs/39712971437). Each job completed the JavaScript suite, collector checks, and demo report generation successfully. Consult [the latest workflow runs](https://github.com/tobiko-dev/php-global-crisis-fix/actions/workflows/ci.yml) for subsequent commits.
 
 ## Limits
 

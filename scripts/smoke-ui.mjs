@@ -43,6 +43,7 @@ try {
     executablePath: process.env.CHROMIUM_EXECUTABLE_PATH || undefined,
     args: ['--no-sandbox', '--disable-dev-shm-usage'],
   });
+  console.log(`Browser: Chromium ${browser.version()}`);
   const context = await browser.newContext({ viewport: { width: 1440, height: 1100 }, timezoneId: 'UTC', acceptDownloads: true });
   const page = await context.newPage();
   activePage = page;
@@ -80,6 +81,7 @@ try {
   assert.deepEqual(await page.locator('.metric-number').allTextContents(), ['2', '3', '2', '1']);
   assert.equal((await saved()).demo, true);
   assert.equal(await page.evaluate(() => document.body.scrollWidth <= innerWidth), true);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   passed('Initial demo: eight sites, all four evidence outcomes, persistent local state, no desktop overflow');
 
   await page.locator('#searchInput').fill('Legacy');
@@ -238,6 +240,7 @@ try {
   await page.reload();
   await rows(8);
   assert.equal(await page.evaluate(() => document.body.scrollWidth <= innerWidth), true);
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth && document.scrollingElement.scrollWidth <= innerWidth), true);
   await page.locator('[data-view="queue"]').click();
   await rows(5);
   await page.locator('[data-view="overview"]').click();
